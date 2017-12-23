@@ -6,32 +6,45 @@ import Dashboard from "./Dashboard";
 const { Header, Content, Footer } = Layout;
 
 export default class LayoutPage extends React.Component {
-	constructor() {
-		super();
-		this.state = {chart : 'chart area'}
-	}
+  constructor() {
+    super();
+    // this.state = {chart : 'chart area'};
+  }
 
   render() {
     return (
-    	<div style={{height:"100%", width:"100%"}}>
-      	<Layout style={{minHeight:"100%"}}>
-          <Header style={{ position: 'fixed', width: '100%', zIndex: 1000, background:"#3d3a71" }}>             
-              <Row gutter={16}>
-                <Col className="gutter-row" span={4}>
-                  <h3 style={{color:"white"}}>Crypto Currency</h3>
-                </Col>
-                <Col className="gutter-row loginIcon" span={1}>
-                  
-                    <Avatar size="large" icon="user" />
-                  
-                </Col>
-              </Row>
-          </Header>
-          <Content style={{marginTop: 64,padding: 20}}>            
-            <div> <Dashboard/></div>
-          </Content>
-        </Layout>
-      </div>
-  	)
+      <div style={{height:"100%", width:"100%",border:"4px solid green"}}>
+          <div style={{height:"100%", width:"10%",border:"4px solid black",float: "left"}}>
+          </div>
+          <div style={{height:"10%", width:"90%",border:"4px solid black",float: "left"}}>
+            <Layout>
+                <Header style={{ width: '100%'}}> 
+                  <Row gutter={16}>
+                      <Col className="gutter-row loginIcon" span={1}>
+                        <Avatar size="large" icon="user" />
+                      </Col>
+                      <Col className="gutter-row" span={4}>
+                        <h3 style={{color:"white"}}>Accounts Overview</h3>
+                      </Col>
+                    </Row>
+                </Header>
+            </Layout>
+          </div>
+          <div style={{height:"90%", width:"90%",border:"4px solid black",float: "left"}}>
+            <div style={{height:"50%", width:"50%",border:"4px solid black",float: "left"}}>
+            </div>
+            <div style={{height:"50%", width:"50%",border:"4px solid black",float: "left"}}>
+              
+            </div>
+            <div style={{height:"50%", width:"100%",border:"4px solid black",float: "left"}}>
+              <Layout>             
+                <Content style={{marginTop: 0,padding: 20}}>            
+                  <div> <Dashboard/></div>
+                </Content>
+              </Layout>
+            </div>
+          </div>
+        </div>
+    )
   }
 }
