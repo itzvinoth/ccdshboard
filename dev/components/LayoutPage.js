@@ -1,7 +1,9 @@
 import React from "react";
 import { Layout, Avatar, Row, Col} from 'antd';
 import './Dashboard.css';
+import './Cards.css';
 import Dashboard from "./Dashboard";
+import Cards from "./Cards";
 
 const { Header, Content, Footer } = Layout;
 
@@ -34,11 +36,11 @@ export default class LayoutPage extends React.Component {
             <div style={{height:"50%", width:"50%",border:"4px solid black",float: "left"}}>
             </div>
             <div style={{height:"50%", width:"50%",border:"4px solid black",float: "left"}}>
-              
+              <Cards/>
             </div>
             <div style={{height:"50%", width:"100%",border:"4px solid black",float: "left"}}>
               <Layout>             
-                <Content style={{marginTop: 0,padding: 20}}>            
+                <Content>            
                   <div> <Dashboard/></div>
                 </Content>
               </Layout>

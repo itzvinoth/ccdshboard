@@ -1,0 +1,11 @@
+.cards-main-container {
+	white-space:nowrap;
+	overflow-x:hidden;
+    overflow-y:hidden;
+    background-color: #ECECEC;
+}
+
+.cards-container {
+    position:relative;
+    display:inline-block;
+}
