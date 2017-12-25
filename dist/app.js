@@ -9950,8 +9950,6 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(49);
-
 var _superagent = __webpack_require__(370);
 
 var _superagent2 = _interopRequireDefault(_superagent);
@@ -66854,6 +66852,10 @@ var _Dashboard = __webpack_require__(114);
 
 var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
+var _NumberCounter = __webpack_require__(574);
+
+var _NumberCounter2 = _interopRequireDefault(_NumberCounter);
+
 var _Cards = __webpack_require__(545);
 
 var _Cards2 = _interopRequireDefault(_Cards);
@@ -66913,7 +66915,30 @@ var LayoutPage = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { style: { height: "90%", width: "90%", border: "4px solid black", float: "left" } },
-          _react2.default.createElement('div', { style: { height: "50%", width: "50%", border: "4px solid black", float: "left" } }),
+          _react2.default.createElement(
+            'div',
+            { style: { height: "50%", width: "50%", border: "4px solid black", float: "left" } },
+            _react2.default.createElement(
+              'div',
+              { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
+              _react2.default.createElement(_NumberCounter2.default, null)
+            ),
+            _react2.default.createElement(
+              'div',
+              { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
+              'Balance 2'
+            ),
+            _react2.default.createElement(
+              'div',
+              { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
+              'Balance 3'
+            ),
+            _react2.default.createElement(
+              'div',
+              { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
+              'Balance 4'
+            )
+          ),
           _react2.default.createElement(
             'div',
             { style: { height: "50%", width: "50%", border: "4px solid black", float: "left" } },
@@ -68641,8 +68666,6 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = __webpack_require__(49);
-
 var _underscore = __webpack_require__(129);
 
 var _underscore2 = _interopRequireDefault(_underscore);
@@ -68732,15 +68755,6 @@ var Cards = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			/*function CardList(props) {
-   	const cards = props.arrayOfCards;
-   	const handleClick = props.handleClick;
-   	const translateValue = props.translateValue;
-   	const transition = props.transition;
-   	return (<div className="cards-container" style={{padding: '20px', transform: `translateX(${translateValue}px)`, transition: `${transition}`}}>
-   			{ this.renderCards() }
-   		</div>);
-   }*/
 
 			return _react2.default.createElement(
 				'div',
@@ -72519,6 +72533,527 @@ exports.push([module.i, "/* stylelint-disable at-rule-empty-line-before,at-rule-
 
 // exports
 
+
+/***/ }),
+/* 574 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _getPrototypeOf = __webpack_require__(90);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(10);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(13);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(11);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(12);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = __webpack_require__(370);
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+var _underscore = __webpack_require__(129);
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+var _prettyBytes = __webpack_require__(575);
+
+var _prettyBytes2 = _interopRequireDefault(_prettyBytes);
+
+var _reactAnimatedNumber = __webpack_require__(576);
+
+var _reactAnimatedNumber2 = _interopRequireDefault(_reactAnimatedNumber);
+
+var _reactChartjs = __webpack_require__(377);
+
+var _reactChartjs2 = _interopRequireDefault(_reactChartjs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var getRandomInt = function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+var NumberCounter = function (_React$Component) {
+	(0, _inherits3.default)(NumberCounter, _React$Component);
+
+	function NumberCounter(props) {
+		(0, _classCallCheck3.default)(this, NumberCounter);
+
+		var _this = (0, _possibleConstructorReturn3.default)(this, (NumberCounter.__proto__ || (0, _getPrototypeOf2.default)(NumberCounter)).call(this, props));
+
+		_this.handleClick = _this.handleClick.bind(_this);
+		_this.state = {
+			smallValue: 10,
+			updates: 0
+		};
+		return _this;
+	}
+
+	(0, _createClass3.default)(NumberCounter, [{
+		key: 'handleClick',
+		value: function handleClick() {
+			var _this2 = this;
+
+			this.interval = setInterval(function () {
+				return _this2.update();
+			}, 500);
+		}
+	}, {
+		key: 'update',
+		value: function update() {
+			var updates = this.state.updates;
+
+			this.setState({
+				smallValue: getRandomInt(10, 1000),
+				updates: updates + 1
+			});
+		}
+	}, {
+		key: 'componentDidUpdate',
+		value: function componentDidUpdate() {
+			clearInterval(this.interval);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var _state = this.state,
+			    smallValue = _state.smallValue,
+			    bigValue = _state.bigValue;
+
+			return _react2.default.createElement(
+				'div',
+				null,
+				' ',
+				_react2.default.createElement(
+					'h2',
+					{ onClick: this.handleClick },
+					_react2.default.createElement(_reactAnimatedNumber2.default, { style: { transition: '0.8s ease-out', transitionProperty: 'background-color, color, opacity' },
+						frameStyle: function frameStyle(perc) {
+							return perc === 100 ? {} : { opacity: 0.25 };
+						}, stepPrecision: 0, value: smallValue, formatValue: function formatValue(n) {
+							return '' + ('$ ' + n);
+						} })
+				)
+			);
+		}
+	}]);
+	return NumberCounter;
+}(_react2.default.Component);
+
+exports.default = NumberCounter;
+
+/***/ }),
+/* 575 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+const UNITS = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+module.exports = num => {
+	if (!Number.isFinite(num)) {
+		throw new TypeError(`Expected a finite number, got ${typeof num}: ${num}`);
+	}
+
+	const neg = num < 0;
+
+	if (neg) {
+		num = -num;
+	}
+
+	if (num < 1) {
+		return (neg ? '-' : '') + num + ' B';
+	}
+
+	const exponent = Math.min(Math.floor(Math.log(num) / Math.log(1000)), UNITS.length - 1);
+	const numStr = Number((num / Math.pow(1000, exponent)).toPrecision(3));
+	const unit = UNITS[exponent];
+
+	return (neg ? '-' : '') + numStr + ' ' + unit;
+};
+
+
+/***/ }),
+/* 576 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _AnimatedNumber = __webpack_require__(577);
+
+var _AnimatedNumber2 = _interopRequireDefault(_AnimatedNumber);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+module.exports = _AnimatedNumber2.default;
+
+/***/ }),
+/* 577 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(4);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _raf = __webpack_require__(578);
+
+var _raf2 = _interopRequireDefault(_raf);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ANIMATION_DURATION = 300;
+
+var AnimatedNumber = function (_Component) {
+    _inherits(AnimatedNumber, _Component);
+
+    function AnimatedNumber(props) {
+        _classCallCheck(this, AnimatedNumber);
+
+        var _this = _possibleConstructorReturn(this, (AnimatedNumber.__proto__ || Object.getPrototypeOf(AnimatedNumber)).call(this, props));
+
+        _this.state = {
+            currentValue: props.initialValue
+        };
+        return _this;
+    }
+
+    _createClass(AnimatedNumber, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.prepareTween(this.props);
+        }
+    }, {
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+
+            if (this.state.currentValue === nextProps.value) {
+                return;
+            }
+
+            if (this.tweenHandle) {
+                this.endTween();
+            }
+
+            this.prepareTween(nextProps);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            this.endTween();
+        }
+    }, {
+        key: 'prepareTween',
+        value: function prepareTween() {
+            var _this2 = this;
+
+            this.tweenHandle = (0, _raf2.default)(function (timestamp) {
+                _this2.tweenValue(timestamp, true);
+            });
+        }
+    }, {
+        key: 'endTween',
+        value: function endTween() {
+            _raf2.default.cancel(this.tweenHandle);
+            this.setState(_extends({}, this.state, {
+                currentValue: this.props.value
+            }));
+        }
+    }, {
+        key: 'ensureSixtyFps',
+        value: function ensureSixtyFps(timestamp) {
+            var currentTime = this.state.currentTime;
+
+
+            return !currentTime || timestamp - currentTime > 16;
+        }
+    }, {
+        key: 'tweenValue',
+        value: function tweenValue(timestamp, start) {
+
+            if (!this.ensureSixtyFps(timestamp)) {
+                this.tweenHandle = (0, _raf2.default)(this.tweenValue.bind(this));
+                return;
+            }
+
+            var _props = this.props,
+                value = _props.value,
+                duration = _props.duration;
+            var currentValue = this.state.currentValue;
+
+            var currentTime = timestamp;
+            var startTime = start ? timestamp : this.state.startTime;
+            var fromValue = start ? currentValue : this.state.fromValue;
+            var newValue = void 0;
+
+            if (currentTime - startTime >= duration) {
+                newValue = value;
+            } else {
+                newValue = fromValue + (value - fromValue) * ((currentTime - startTime) / duration);
+            }
+
+            if (newValue === value) {
+                this.endTween();
+                return;
+            }
+
+            this.setState({
+                currentValue: newValue,
+                startTime: startTime ? startTime : currentTime,
+                fromValue: fromValue, currentTime: currentTime
+            });
+            this.tweenHandle = (0, _raf2.default)(this.tweenValue.bind(this));
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _props2 = this.props,
+                formatValue = _props2.formatValue,
+                value = _props2.value,
+                className = _props2.className,
+                frameStyle = _props2.frameStyle,
+                stepPrecision = _props2.stepPrecision;
+            var _state = this.state,
+                currentValue = _state.currentValue,
+                fromValue = _state.fromValue;
+            var style = this.props.style;
+
+            var adjustedValue = currentValue;
+            var direction = value - fromValue;
+
+            if (currentValue !== value) {
+                if (stepPrecision > 0) {
+                    adjustedValue = Number(currentValue.toFixed(stepPrecision));
+                } else if (direction < 0 && stepPrecision === 0) {
+                    adjustedValue = Math.floor(currentValue);
+                } else if (direction > 0 && stepPrecision === 0) {
+                    adjustedValue = Math.ceil(currentValue);
+                }
+            }
+
+            var perc = Math.abs((adjustedValue - fromValue) / (value - fromValue) * 100);
+
+            var currStyle = frameStyle(perc);
+
+            if (style && currStyle) {
+                style = _extends({}, style, currStyle);
+            } else if (currStyle) {
+                style = currStyle;
+            }
+
+            return _react2.default.createElement(this.props.component, _extends({}, filterKnownProps(this.props), { className: className, style: style }), formatValue(adjustedValue));
+        }
+    }]);
+
+    return AnimatedNumber;
+}(_react.Component);
+
+AnimatedNumber.propTypes = {
+    component: _propTypes2.default.any,
+    formatValue: _propTypes2.default.func,
+    value: _propTypes2.default.number.isRequired,
+    initialValue: _propTypes2.default.number,
+    duration: _propTypes2.default.number,
+    frameStyle: _propTypes2.default.func,
+    stepPrecision: _propTypes2.default.number,
+    style: _propTypes2.default.object,
+    className: _propTypes2.default.string
+};
+AnimatedNumber.defaultProps = {
+    component: 'span',
+    formatValue: function formatValue(n) {
+        return n;
+    },
+    initialValue: 0,
+    duration: ANIMATION_DURATION,
+    frameStyle: function frameStyle() {
+        return {};
+    }
+};
+exports.default = AnimatedNumber;
+
+
+function filterKnownProps(props) {
+    var sanitized = {};
+    var propNames = Object.keys(props);
+    var validProps = Object.keys(AnimatedNumber.propTypes);
+
+    propNames.filter(function (p) {
+        return validProps.indexOf(p) < 0;
+    }).forEach(function (p) {
+        sanitized[p] = props[p];
+    });
+
+    return sanitized;
+};
+
+/***/ }),
+/* 578 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(579)
+  , root = typeof window === 'undefined' ? global : window
+  , vendors = ['moz', 'webkit']
+  , suffix = 'AnimationFrame'
+  , raf = root['request' + suffix]
+  , caf = root['cancel' + suffix] || root['cancelRequest' + suffix]
+
+for(var i = 0; !raf && i < vendors.length; i++) {
+  raf = root[vendors[i] + 'Request' + suffix]
+  caf = root[vendors[i] + 'Cancel' + suffix]
+      || root[vendors[i] + 'CancelRequest' + suffix]
+}
+
+// Some versions of FF have rAF but not cAF
+if(!raf || !caf) {
+  var last = 0
+    , id = 0
+    , queue = []
+    , frameDuration = 1000 / 60
+
+  raf = function(callback) {
+    if(queue.length === 0) {
+      var _now = now()
+        , next = Math.max(0, frameDuration - (_now - last))
+      last = next + _now
+      setTimeout(function() {
+        var cp = queue.slice(0)
+        // Clear queue here to prevent
+        // callbacks from appending listeners
+        // to the current frame's queue
+        queue.length = 0
+        for(var i = 0; i < cp.length; i++) {
+          if(!cp[i].cancelled) {
+            try{
+              cp[i].callback(last)
+            } catch(e) {
+              setTimeout(function() { throw e }, 0)
+            }
+          }
+        }
+      }, Math.round(next))
+    }
+    queue.push({
+      handle: ++id,
+      callback: callback,
+      cancelled: false
+    })
+    return id
+  }
+
+  caf = function(handle) {
+    for(var i = 0; i < queue.length; i++) {
+      if(queue[i].handle === handle) {
+        queue[i].cancelled = true
+      }
+    }
+  }
+}
+
+module.exports = function(fn) {
+  // Wrap in a new function to prevent
+  // `cancel` potentially being assigned
+  // to the native rAF function
+  return raf.call(root, fn)
+}
+module.exports.cancel = function() {
+  caf.apply(root, arguments)
+}
+module.exports.polyfill = function(object) {
+  if (!object) {
+    object = root;
+  }
+  object.requestAnimationFrame = raf
+  object.cancelAnimationFrame = caf
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(253)))
+
+/***/ }),
+/* 579 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.12.2
+(function() {
+  var getNanoSeconds, hrtime, loadTime, moduleLoadTime, nodeLoadTime, upTime;
+
+  if ((typeof performance !== "undefined" && performance !== null) && performance.now) {
+    module.exports = function() {
+      return performance.now();
+    };
+  } else if ((typeof process !== "undefined" && process !== null) && process.hrtime) {
+    module.exports = function() {
+      return (getNanoSeconds() - nodeLoadTime) / 1e6;
+    };
+    hrtime = process.hrtime;
+    getNanoSeconds = function() {
+      var hr;
+      hr = hrtime();
+      return hr[0] * 1e9 + hr[1];
+    };
+    moduleLoadTime = getNanoSeconds();
+    upTime = process.uptime() * 1e9;
+    nodeLoadTime = moduleLoadTime - upTime;
+  } else if (Date.now) {
+    module.exports = function() {
+      return Date.now() - loadTime;
+    };
+    loadTime = Date.now();
+  } else {
+    module.exports = function() {
+      return new Date().getTime() - loadTime;
+    };
+    loadTime = new Date().getTime();
+  }
+
+}).call(this);
+
+//# sourceMappingURL=performance-now.js.map
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
 
 /***/ })
 /******/ ]);

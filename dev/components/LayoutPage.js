@@ -3,6 +3,7 @@ import { Layout, Avatar, Row, Col} from 'antd';
 import './Dashboard.css';
 import './Cards.css';
 import Dashboard from "./Dashboard";
+import NumberCounter from "./NumberCounter";
 import Cards from "./Cards";
 
 const { Header, Content, Footer } = Layout;
@@ -34,6 +35,18 @@ export default class LayoutPage extends React.Component {
           </div>
           <div style={{height:"90%", width:"90%",border:"4px solid black",float: "left"}}>
             <div style={{height:"50%", width:"50%",border:"4px solid black",float: "left"}}>
+              <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
+                <NumberCounter/>
+              </div>
+              <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
+                Balance 2
+              </div>
+              <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
+                Balance 3
+              </div>
+              <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
+                Balance 4
+              </div>
             </div>
             <div style={{height:"50%", width:"50%",border:"4px solid black",float: "left"}}>
               <Cards/>

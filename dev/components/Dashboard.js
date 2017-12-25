@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Radio } from 'antd';
 import request from 'superagent';
 import _ from 'underscore';
