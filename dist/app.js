@@ -9975,33 +9975,34 @@ var Dashboard = function (_React$Component) {
     var _this = (0, _possibleConstructorReturn3.default)(this, (Dashboard.__proto__ || (0, _getPrototypeOf2.default)(Dashboard)).call(this, props));
 
     _this.onChange = _this.onChange.bind(_this);
-    // We can't use other names instead of 'state' prop in obj
-    // Because 'state' is an existing property name in React 
     _this.state = {
       type: 'line',
       value: 'year',
       chartData: {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [{
-          label: '# of Votes',
           data: [8, 19, 7, 15, 2, 3, 14, 4, 16, 6, 8, 10],
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgba(255,99,132,1)',
-          borderWidth: 1
+          fill: false,
+          borderColor: 'rgb(51, 51, 204)',
+          borderWidth: 2
         }]
       },
-      chartOptions: {
-        options: {
-          legend: {
-            display: false
-          },
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
-          }
+      options: {
+        legend: {
+          display: false
+        },
+        tooltips: {
+          mode: 'x-axis'
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              min: 0,
+              max: 20,
+              stepSize: 10
+            }
+          }]
         }
       }
     };
@@ -10016,19 +10017,12 @@ var Dashboard = function (_React$Component) {
         chartData: {
           labels: event.target.value === 'month' ? ['Januar', 'March', 'April', 'June'] : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
           datasets: [{
-            label: '# of Votes',
             data: event.target.value === 'month' ? [4, 9, 2, 7] : [8, 19, 7, 15, 2, 3, 14, 4, 16, 6, 8, 10],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255,99,132,1)',
-            borderWidth: 1
+            borderColor: 'rgb(51, 51, 204)',
+            borderWidth: 2
           }]
         }
       });
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      // console.log(this.refs.chart.chart_instance); // returns a Chart.js instance reference
     }
   }, {
     key: 'render',
@@ -10064,7 +10058,7 @@ var Dashboard = function (_React$Component) {
             )
           )
         ),
-        _react2.default.createElement(_reactChartjs2.default, { type: this.state.type, data: this.state.chartData, options: this.state.chartOptions, width: 400, height: 100 })
+        _react2.default.createElement(_reactChartjs2.default, { type: this.state.type, data: this.state.chartData, options: this.state.options, width: 400, height: 100 })
       );
     }
   }]);
@@ -66852,6 +66846,10 @@ var _Dashboard = __webpack_require__(114);
 
 var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
+var _DrawLineChart = __webpack_require__(580);
+
+var _DrawLineChart2 = _interopRequireDefault(_DrawLineChart);
+
 var _NumberCounter = __webpack_require__(574);
 
 var _NumberCounter2 = _interopRequireDefault(_NumberCounter);
@@ -66921,7 +66919,7 @@ var LayoutPage = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
-              _react2.default.createElement(_NumberCounter2.default, null)
+              _react2.default.createElement(_NumberCounter2.default, { min: 100, max: 1000 })
             ),
             _react2.default.createElement(
               'div',
@@ -66931,12 +66929,16 @@ var LayoutPage = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
-              'Balance 3'
+              _react2.default.createElement(_NumberCounter2.default, { min: 500, max: 5000 }),
+              _react2.default.createElement('br', null),
+              _react2.default.createElement(_DrawLineChart2.default, { type: 'line', size: 'small', layer: 'one', width: 15, height: 40 })
             ),
             _react2.default.createElement(
               'div',
               { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
-              'Balance 4'
+              _react2.default.createElement(_NumberCounter2.default, { min: 2500, max: 7500 }),
+              _react2.default.createElement('br', null),
+              _react2.default.createElement(_DrawLineChart2.default, { type: 'line', size: 'small', layer: 'two', width: 15, height: 25 })
             )
           ),
           _react2.default.createElement(
@@ -68620,7 +68622,7 @@ exports = module.exports = __webpack_require__(18)(undefined);
 
 
 // module
-exports.push([module.i, ".cards-main-container {\r\n\twhite-space:nowrap;\r\n\toverflow-x:hidden;\r\n    overflow-y:hidden;\r\n    background-color: #ECECEC;\r\n}\r\n\r\n.cards-container {\r\n    position:relative;\r\n    display:inline-block;\r\n}", ""]);
+exports.push([module.i, ".cards-main-container {\r\n\twhite-space:nowrap;\r\n\toverflow-x:hidden;\r\n    overflow-y:hidden;\r\n    background-color: #ECECEC;\r\n}\r\n\r\n.cards-container {\r\n    position:relative;\r\n    display:inline-block;\r\n}\r\ncanvas#0 {\r\n\twidth:50px !important;\r\n\theight:60px !important;\r\n}", ""]);
 
 // exports
 
@@ -72585,10 +72587,6 @@ var _reactAnimatedNumber = __webpack_require__(576);
 
 var _reactAnimatedNumber2 = _interopRequireDefault(_reactAnimatedNumber);
 
-var _reactChartjs = __webpack_require__(377);
-
-var _reactChartjs2 = _interopRequireDefault(_reactChartjs);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var getRandomInt = function getRandomInt(min, max) {
@@ -72603,11 +72601,13 @@ var NumberCounter = function (_React$Component) {
 
 		var _this = (0, _possibleConstructorReturn3.default)(this, (NumberCounter.__proto__ || (0, _getPrototypeOf2.default)(NumberCounter)).call(this, props));
 
-		_this.handleClick = _this.handleClick.bind(_this);
 		_this.state = {
-			smallValue: 10,
-			updates: 0
+			smallValue: props.min,
+			updates: 0,
+			min: props.min,
+			max: props.max
 		};
+		_this.handleClick = _this.handleClick.bind(_this);
 		return _this;
 	}
 
@@ -72623,10 +72623,13 @@ var NumberCounter = function (_React$Component) {
 	}, {
 		key: 'update',
 		value: function update() {
-			var updates = this.state.updates;
+			var _state = this.state,
+			    updates = _state.updates,
+			    min = _state.min,
+			    max = _state.max;
 
 			this.setState({
-				smallValue: getRandomInt(10, 1000),
+				smallValue: getRandomInt(min, max),
 				updates: updates + 1
 			});
 		}
@@ -72638,9 +72641,7 @@ var NumberCounter = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
-			var _state = this.state,
-			    smallValue = _state.smallValue,
-			    bigValue = _state.bigValue;
+			var smallValue = this.state.smallValue;
 
 			return _react2.default.createElement(
 				'div',
@@ -73054,6 +73055,134 @@ module.exports.polyfill = function(object) {
 //# sourceMappingURL=performance-now.js.map
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9)))
+
+/***/ }),
+/* 580 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _getPrototypeOf = __webpack_require__(90);
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = __webpack_require__(10);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(13);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = __webpack_require__(11);
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = __webpack_require__(12);
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _superagent = __webpack_require__(370);
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+var _underscore = __webpack_require__(129);
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+var _reactChartjs = __webpack_require__(377);
+
+var _reactChartjs2 = _interopRequireDefault(_reactChartjs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var DrawLineChart = function (_React$Component) {
+	(0, _inherits3.default)(DrawLineChart, _React$Component);
+
+	function DrawLineChart(props) {
+		(0, _classCallCheck3.default)(this, DrawLineChart);
+
+		var _this = (0, _possibleConstructorReturn3.default)(this, (DrawLineChart.__proto__ || (0, _getPrototypeOf2.default)(DrawLineChart)).call(this, props));
+
+		_this.state = {
+			type: props.type,
+			chartData: {
+				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+				datasets: [{
+					data: [8, 19, 7, 15, 2, 3, 14, 4, 16, 6, 8, 10],
+					fill: false,
+					borderColor: 'rgb(51, 51, 204)',
+					radius: 0,
+					borderWidth: 1
+				}]
+			},
+			options: {
+				responsive: true,
+				maintainAspectRatio: false,
+				legend: {
+					display: false
+				},
+				tooltips: {
+					enabled: false
+				},
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero: true,
+							display: false
+						},
+						gridLines: {
+							display: false,
+							drawBorder: false
+						}
+					}],
+					xAxes: [{
+						ticks: {
+							display: false
+						},
+						gridLines: {
+							display: false,
+							drawBorder: false
+						}
+					}]
+				}
+			},
+			width: props.width,
+			height: props.height
+		};
+		return _this;
+	}
+
+	(0, _createClass3.default)(DrawLineChart, [{
+		key: 'render',
+		value: function render() {
+			var _state = this.state,
+			    type = _state.type,
+			    chartData = _state.chartData,
+			    options = _state.options,
+			    width = _state.width,
+			    height = _state.height;
+
+			return _react2.default.createElement(
+				'div',
+				{ style: { width: '170px', height: '40px' } },
+				_react2.default.createElement(_reactChartjs2.default, { type: type, data: chartData, options: options, width: width, height: height })
+			);
+		}
+	}]);
+	return DrawLineChart;
+}(_react2.default.Component);
+
+exports.default = DrawLineChart;
 
 /***/ })
 /******/ ]);

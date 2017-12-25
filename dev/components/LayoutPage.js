@@ -3,6 +3,7 @@ import { Layout, Avatar, Row, Col} from 'antd';
 import './Dashboard.css';
 import './Cards.css';
 import Dashboard from "./Dashboard";
+import DrawLineChart from "./DrawLineChart";
 import NumberCounter from "./NumberCounter";
 import Cards from "./Cards";
 
@@ -36,16 +37,18 @@ export default class LayoutPage extends React.Component {
           <div style={{height:"90%", width:"90%",border:"4px solid black",float: "left"}}>
             <div style={{height:"50%", width:"50%",border:"4px solid black",float: "left"}}>
               <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
-                <NumberCounter/>
+                <NumberCounter min={100} max={1000}/>
               </div>
               <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
                 Balance 2
               </div>
               <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
-                Balance 3
+                <NumberCounter min={500} max={5000}/><br/>
+                <DrawLineChart type="line" size="small" layer="one" width={15} height={40}/>
               </div>
               <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
-                Balance 4
+                <NumberCounter min={2500} max={7500}/><br/>
+                <DrawLineChart type="line" size="small" layer="two" width={15} height={25}/>
               </div>
             </div>
             <div style={{height:"50%", width:"50%",border:"4px solid black",float: "left"}}>

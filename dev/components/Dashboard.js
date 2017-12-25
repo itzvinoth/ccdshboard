@@ -11,33 +11,34 @@ export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.onChange = this.onChange.bind(this);
-    // We can't use other names instead of 'state' prop in obj
-    // Because 'state' is an existing property name in React 
     this.state = {
       type: 'line',
       value: 'year',
       chartData: {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [{
-          label: '# of Votes',
           data: [8, 19, 7, 15, 2, 3, 14, 4, 16, 6, 8, 10],
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgba(255,99,132,1)',
-          borderWidth: 1
+          fill: false,
+          borderColor: 'rgb(51, 51, 204)',
+          borderWidth: 2
         }]
       },
-      chartOptions:  {
-        options: {
-          legend: {
-            display: false
-          },
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero:true
-              }
-            }]
-          }
+      options: {
+        legend: {
+          display: false
+        },
+        tooltips: {
+          mode: 'x-axis'
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero:true,
+              min: 0,
+              max: 20,
+              stepSize: 10
+            }
+          }]
         }
       }
     };
@@ -49,18 +50,12 @@ export default class Dashboard extends React.Component {
       chartData: {
         labels: event.target.value === 'month' ? ['Januar', 'March', 'April', 'June'] : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [{
-          label: '# of Votes',
           data: event.target.value === 'month' ? [4, 9, 2, 7] : [8, 19, 7, 15, 2, 3, 14, 4, 16, 6, 8, 10],
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgba(255,99,132,1)',
-          borderWidth: 1
+          borderColor: 'rgb(51, 51, 204)',
+          borderWidth: 2
         }]
       }
     });
-  }
-
-  componentDidMount() {
-    // console.log(this.refs.chart.chart_instance); // returns a Chart.js instance reference
   }
 
   render() {
@@ -74,7 +69,7 @@ export default class Dashboard extends React.Component {
             <Radio.Button value="day">Day</Radio.Button>
           </Radio.Group>
         </div>
-        <LineChart type={this.state.type} data={this.state.chartData} options={this.state.chartOptions} width={400} height={100}/>
+        <LineChart type={this.state.type} data={this.state.chartData} options={this.state.options} width={400} height={100}/>
       </div>
     )
   }

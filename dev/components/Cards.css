@@ -9,3 +9,7 @@
     position:relative;
     display:inline-block;
 }
+canvas#0 {
+	width:50px !important;
+	height:60px !important;
+}
