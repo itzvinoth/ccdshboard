@@ -10,22 +10,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Serve static assets
-app.use("/dist", express.static("./dist"))
-
-// API's
-/*var User = require("./user");
-
-app.get("/api/users", (req, res) => {
-    User.find({}).exec(function(err, users) {
-        if (err) {
-            res.send("No users found")
-        } else {
-            res.json(users);
-        }
-    })
-});*/
-
-
+app.use("/app.min.js", express.static("./app.min.js"))
 
 // Serve root
 app.get("/*", (req, res) => {
