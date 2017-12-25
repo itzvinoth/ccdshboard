@@ -19,14 +19,27 @@ export default class LayoutPage extends React.Component {
     return (
       <div style={{height:"100%", width:"100%",border:"1px solid green"}}>
           <div style={{height:"100%", width:"5%",border:"1px solid black",float: "left", background:'#f2f2f2'}}>
-            <Avatar shape="square" size="large" icon="user" />
+            <div style={{height:"10%", width:"100%", float: "left"}}>
+              <Avatar shape="square" size="large" icon="user" />
+            </div>
+            <div style={{height: "10%", paddingTop: "5%", float: "left", width: "100%"}}></div>
+            <div style={{ paddingTop:"5%", float: "left"}}></div>
+            <div style={{height:"100%", paddingTop:"25%",  width:"100%"}}>
+              <Icon size="large" type="dashboard" />
+              <Icon size="large" type="swap" />
+              <Icon size="large" type="solution" />
+              <Icon size="large" type="profile" />
+              <Icon size="large" type="setting" />
+            </div>
           </div>
+
           <div style={{height:"10%", width:"95%",border:"1px solid black",float: "left", background:'#f2f2f2'}}>
             <div style={{ width:"5%",paddingLeft: "2%",paddingTop: "2%", float: "left"}}> 
               <Icon type="left"/>
             </div>
-            <h3 style={{color:"#000"}}>Accounts Overview</h3>
+            <h3 style={{paddingTop: "2%", color:"#000"}}>Accounts Overview</h3>
           </div>
+
           <div style={{height:"90%", width:"95%",border:"1px solid black",float: "left"}}>
             <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
               <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left", background:'#f2f2f2'}}>

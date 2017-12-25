@@ -1,27 +1,49 @@
-var webpack = require("webpack");
-var path = require("path");
+var webpack = require('webpack');
+var path = require('path');
 
-var DEV = path.resolve(__dirname, "dev");
-var OUTPUT = path.resolve(__dirname, "dist");
+var loaders = [
+  {
+    test: /\.jsx?$/,
+    exclude: /(node_modules|bower_components|public\/)/,
+    loader: "babel-loader"
+  },
+  {
+    test: /\.css$/,
+    loaders: ['style-loader', 'css-loader?importLoaders=1'],
+    exclude: ['node_modules']
+  }
+];
 
-var config = {
-  entry: DEV + "/index.jsx",
+
+module.exports = {
+  entry: [
+    './dev/index.jsx'
+  ],
   output: {
-    path: OUTPUT,
-    filename: "app.js"
+    publicPath: './',
+    path: path.join(__dirname, 'dist'),
+    filename: 'app.min.js'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      include: DEV,
-      loader: "babel-loader"
-    }, {
-      test: /\.css$/,
-      loader: "style-loader!css-loader"
-    }]
+    loaders
   },
-  watch: true
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        screw_ie8: true,
+        drop_console: true,
+        drop_debugger: true
+      }
+    }),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+  ]
 };
-
-module.exports = config;

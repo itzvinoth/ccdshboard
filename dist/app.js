@@ -66773,7 +66773,22 @@ var LayoutPage = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { style: { height: "100%", width: "5%", border: "1px solid black", float: "left", background: '#f2f2f2' } },
-          _react2.default.createElement(_avatar2.default, { shape: 'square', size: 'large', icon: 'user' })
+          _react2.default.createElement(
+            'div',
+            { style: { height: "10%", width: "100%", float: "left" } },
+            _react2.default.createElement(_avatar2.default, { shape: 'square', size: 'large', icon: 'user' })
+          ),
+          _react2.default.createElement('div', { style: { height: "10%", paddingTop: "5%", float: "left", width: "100%" } }),
+          _react2.default.createElement('div', { style: { paddingTop: "5%", float: "left" } }),
+          _react2.default.createElement(
+            'div',
+            { style: { height: "100%", paddingTop: "25%", width: "100%" } },
+            _react2.default.createElement(_icon2.default, { size: 'large', type: 'dashboard' }),
+            _react2.default.createElement(_icon2.default, { size: 'large', type: 'swap' }),
+            _react2.default.createElement(_icon2.default, { size: 'large', type: 'solution' }),
+            _react2.default.createElement(_icon2.default, { size: 'large', type: 'profile' }),
+            _react2.default.createElement(_icon2.default, { size: 'large', type: 'setting' })
+          )
         ),
         _react2.default.createElement(
           'div',
@@ -66785,7 +66800,7 @@ var LayoutPage = function (_React$Component) {
           ),
           _react2.default.createElement(
             'h3',
-            { style: { color: "#000" } },
+            { style: { paddingTop: "2%", color: "#000" } },
             'Accounts Overview'
           )
         ),
@@ -67866,7 +67881,7 @@ exports = module.exports = __webpack_require__(18)(undefined);
 
 
 // module
-exports.push([module.i, ".cards-main-container {\r\n\twhite-space:nowrap;\r\n\toverflow-x:hidden;\r\n    overflow-y:hidden;\r\n    background-color: #ECECEC;\r\n}\r\n\r\n.cards-container {\r\n    position:relative;\r\n    display:inline-block;\r\n}\r\ncanvas#0 {\r\n\twidth:50px !important;\r\n\theight:60px !important;\r\n}", ""]);
+exports.push([module.i, ".cards-main-container {\r\n\twhite-space:nowrap;\r\n\toverflow-x:hidden;\r\n    overflow-y:hidden;\r\n    background-color: #ECECEC;\r\n}\r\n\r\n.cards-container {\r\n    position:relative;\r\n    display:inline-block;\r\n}", ""]);
 
 // exports
 
