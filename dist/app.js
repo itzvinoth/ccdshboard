@@ -68662,7 +68662,9 @@ var Cards = function (_React$Component) {
 		_this.state = {
 			arrayOfCards: [1, 2, 3, 4, 5, 6, 7],
 			index: 0,
-			translateValue: 0
+			translateValue: 0,
+			transition: '',
+			count: 1
 		};
 		_this.handleClick = _this.handleClick.bind(_this);
 		return _this;
@@ -68679,39 +68681,72 @@ var Cards = function (_React$Component) {
 					return n + 1;
 				}
 			});
+
 			this.setState({
-				arrayOfCards: arrayOfCards
+				count: this.state.count + 1,
+				translateValue: -210 * this.state.count,
+				transition: 'transform 0.75s ease-out'
 			});
 		}
 	}, {
-		key: 'render',
-		value: function render() {
-			function CardList(props) {
-				var cards = props.arrayOfCards;
-				var handleClick = props.handleClick;
-				var cardList = cards.map(function (card, index) {
-					return _react2.default.createElement(
+		key: 'renderCards',
+		value: function renderCards() {
+			var cards = this.state.arrayOfCards;
+			var count = this.state.count;
+			var slides = [];
+			for (var i = 0; i < cards.length; i++) {
+				if (count - 1 !== i) {
+					slides.push(_react2.default.createElement(
 						'div',
-						{ className: 'cards-container', key: index, onClick: handleClick, style: { padding: '20px' } },
+						{ className: 'cards-container', key: i, style: { padding: '20px' }, onClick: this.handleClick },
 						_react2.default.createElement(
 							_card2.default,
-							{ style: { width: 170, height: 200 } },
+							{ style: { width: 170, height: 200, transform: 'translateX(' + this.state.translateValue + 'px)', transition: '' + this.state.transition } },
 							_react2.default.createElement(
 								'p',
 								null,
 								'Card content ',
-								card
+								cards[i]
 							)
 						)
-					);
-				});
-				return cardList;
+					));
+				} else {
+					slides.push(_react2.default.createElement(
+						'div',
+						{ className: 'cards-container', key: i, style: { padding: '20px' } },
+						_react2.default.createElement(
+							_card2.default,
+							{ style: { width: 200, height: 230, transform: 'translateX(' + this.state.translateValue + 'px)', transition: '' + this.state.transition } },
+							_react2.default.createElement(
+								'p',
+								null,
+								'Card content ',
+								cards[i]
+							)
+						)
+					));
+				}
 			}
+			return slides;
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			/*function CardList(props) {
+   	const cards = props.arrayOfCards;
+   	const handleClick = props.handleClick;
+   	const translateValue = props.translateValue;
+   	const transition = props.transition;
+   	return (<div className="cards-container" style={{padding: '20px', transform: `translateX(${translateValue}px)`, transition: `${transition}`}}>
+   			{ this.renderCards() }
+   		</div>);
+   }*/
 
 			return _react2.default.createElement(
 				'div',
 				{ className: 'cards-main-container' },
-				_react2.default.createElement(CardList, { arrayOfCards: this.state.arrayOfCards, handleClick: this.handleClick })
+				_react2.default.createElement('div', null),
+				this.renderCards()
 			);
 		}
 	}]);
