@@ -61,7 +61,7 @@ export default class Dashboard extends React.Component {
   render() {
     return ( 
       <div>
-        <div>
+        <div style={{marginLeft:'70%'}}>
           <Radio.Group value={this.state.value} onChange={this.onChange} style={{ marginBottom: 16 }}>
             <Radio.Button value="year">Year</Radio.Button>
             <Radio.Button value="month">Month</Radio.Button>

@@ -2,7 +2,6 @@ import React from 'react';
 import { Radio } from 'antd';
 import request from 'superagent';
 import _ from 'underscore';
-import prettyBytes from 'pretty-bytes';
 import AnimatedNumber from 'react-animated-number';
 
 const getRandomInt = function (min, max) {

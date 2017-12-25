@@ -17,50 +17,43 @@ export default class LayoutPage extends React.Component {
 
   render() {
     return (
-      <div style={{height:"100%", width:"100%",border:"4px solid green"}}>
-          <div style={{height:"100%", width:"10%",border:"4px solid black",float: "left"}}>
+      <div style={{height:"100%", width:"100%",border:"1px solid green"}}>
+          <div style={{height:"100%", width:"5%",border:"1px solid black",float: "left", background:'#f2f2f2'}}>
+            <Avatar shape="square" size="large" icon="user" />
           </div>
-          <div style={{height:"10%", width:"90%",border:"4px solid black",float: "left"}}>
-            <Layout>
-                <Header style={{ width: '100%'}}> 
-                  <Row gutter={16}>
-                      <Col className="gutter-row loginIcon" span={1}>
-                        <Avatar size="large" icon="user" />
-                      </Col>
-                      <Col className="gutter-row" span={4}>
-                        <h3 style={{color:"white"}}>Accounts Overview</h3>
-                      </Col>
-                    </Row>
-                </Header>
-            </Layout>
+          <div style={{height:"10%", width:"95%",border:"1px solid black",float: "left", background:'#f2f2f2'}}>
+            <div style={{ width:"5%",paddingLeft: "2%",paddingTop: "2%", float: "left"}}> 
+              <Icon type="left"/>
+            </div>
+            <h3 style={{color:"#000"}}>Accounts Overview</h3>
           </div>
-          <div style={{height:"90%", width:"90%",border:"4px solid black",float: "left"}}>
-            <div style={{height:"50%", width:"50%",border:"4px solid black",float: "left"}}>
-              <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
+          <div style={{height:"90%", width:"95%",border:"1px solid black",float: "left"}}>
+            <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
+              <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left", background:'#f2f2f2'}}>
                 <NumberCounter min={100} max={1000}/>
               </div>
-              <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
-                <div style={{height:"50%", width:"30%", float: "left"}}>
-                  <Icon type="arrow-up" style={{ fontSize: 32, color: '#08c', background:'#f2f2f2' }} >
-                    <span style={{ fontSize: 16, color: '#08c', background:'#f2f2f2' }} >Sell</span>
+              <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left", paddingTop: "5%", paddingLeft: "5%", background:'#f2f2f2'}}>
+                <div style={{height:"60%", width:"25%", float: "left", textAlign: 'center', background:'#ffffff' }}>
+                  <Icon type="arrow-up" style={{ fontSize: 32, color: '#08c' }} >
+                    <span style={{ fontSize: 12, color: '#08c' }} >Sell</span>
                   </Icon>
-                </div>
-                <div style={{height:"50%", width:"30%", float: "left"}}>
-                  <Icon type="arrow-down" style={{ fontSize: 32, color: '#08c', background:'#f2f2f2' }} >
-                    <span style={{ fontSize: 16, color: '#08c', background:'#f2f2f2' }} >Buy</span>
+                </div><div style={{width:"5%",height:"60%", float: "left"}}></div>
+                <div style={{height:"60%", width:"25%", float: "left", background:'#ffffff', textAlign: 'center' }}>
+                  <Icon type="arrow-down" style={{ fontSize: 32, color: '#08c'}} >
+                    <span style={{ fontSize: 12, color: '#08c' }} >Buy</span>
                   </Icon>
-                </div>
-                <div style={{height:"50%", width:"30%", float: "left"}}>
-                  <Icon type="schedule" style={{ fontSize: 32, color: '#08c', background:'#f2f2f2' }}>
-                    <span style={{ fontSize: 16, color: '#08c', background:'#f2f2f2' }} >Order</span>
+                </div><div style={{width:"5%",height:"60%", float: "left"}}></div>
+                <div style={{height:"60%", width:"25%", float: "left", background:'#ffffff', textAlign: 'center' }}>
+                  <Icon type="schedule" style={{ fontSize: 32, color: '#08c' }}>
+                    <span style={{ fontSize: 12, color: '#08c' }} >Order</span>
                   </Icon>
                 </div>
               </div>
-              <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
+              <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left", background:'#f2f2f2'}}>
                 <NumberCounter min={500} max={5000}/><br/>
                 <DrawLineChart type="line" size="small" layer="one" width={15} height={40}/>
               </div>
-              <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
+              <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left", background:'#f2f2f2'}}>
                 <NumberCounter min={2500} max={7500}/><br/>
                 <DrawLineChart type="line" size="small" layer="two" width={15} height={25}/>
               </div>

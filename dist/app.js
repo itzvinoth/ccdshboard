@@ -12540,7 +12540,7 @@ var Dashboard = function (_React$Component) {
         null,
         _react2.default.createElement(
           'div',
-          null,
+          { style: { marginLeft: '70%' } },
           _react2.default.createElement(
             _radio2.default.Group,
             { value: this.state.value, onChange: this.onChange, style: { marginBottom: 16 } },
@@ -26046,112 +26046,9 @@ exports.default = function (arr) {
 };
 
 /***/ }),
-/* 269 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Col = exports.Row = undefined;
-
-var _row = __webpack_require__(527);
-
-var _row2 = _interopRequireDefault(_row);
-
-var _col = __webpack_require__(532);
-
-var _col2 = _interopRequireDefault(_col);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-exports.Row = _row2['default'];
-exports.Col = _col2['default'];
-
-/***/ }),
-/* 270 */
-/***/ (function(module, exports) {
-
-/**
- * Helper function for iterating over a collection
- *
- * @param collection
- * @param fn
- */
-function each(collection, fn) {
-    var i      = 0,
-        length = collection.length,
-        cont;
-
-    for(i; i < length; i++) {
-        cont = fn(collection[i], i);
-        if(cont === false) {
-            break; //allow early exit
-        }
-    }
-}
-
-/**
- * Helper function for determining whether target object is an array
- *
- * @param target the object under test
- * @return {Boolean} true if array, false otherwise
- */
-function isArray(target) {
-    return Object.prototype.toString.apply(target) === '[object Array]';
-}
-
-/**
- * Helper function for determining whether target object is a function
- *
- * @param target the object under test
- * @return {Boolean} true if function, false otherwise
- */
-function isFunction(target) {
-    return typeof target === 'function';
-}
-
-module.exports = {
-    isFunction : isFunction,
-    isArray : isArray,
-    each : each
-};
-
-
-/***/ }),
-/* 271 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(540);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {"hmr":true}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(19)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../../css-loader/index.js!./index.css", function() {
-			var newContent = require("!!../../../../css-loader/index.js!./index.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
+/* 269 */,
+/* 270 */,
+/* 271 */,
 /* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -66798,14 +66695,6 @@ var _icon = __webpack_require__(66);
 
 var _icon2 = _interopRequireDefault(_icon);
 
-var _row = __webpack_require__(526);
-
-var _row2 = _interopRequireDefault(_row);
-
-var _col = __webpack_require__(533);
-
-var _col2 = _interopRequireDefault(_col);
-
 var _avatar = __webpack_require__(534);
 
 var _avatar2 = _interopRequireDefault(_avatar);
@@ -66833,10 +66722,6 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 __webpack_require__(535);
 
 __webpack_require__(538);
-
-__webpack_require__(539);
-
-__webpack_require__(541);
 
 __webpack_require__(542);
 
@@ -66884,87 +66769,77 @@ var LayoutPage = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { style: { height: "100%", width: "100%", border: "4px solid green" } },
-        _react2.default.createElement('div', { style: { height: "100%", width: "10%", border: "4px solid black", float: "left" } }),
+        { style: { height: "100%", width: "100%", border: "1px solid green" } },
         _react2.default.createElement(
           'div',
-          { style: { height: "10%", width: "90%", border: "4px solid black", float: "left" } },
+          { style: { height: "100%", width: "5%", border: "1px solid black", float: "left", background: '#f2f2f2' } },
+          _react2.default.createElement(_avatar2.default, { shape: 'square', size: 'large', icon: 'user' })
+        ),
+        _react2.default.createElement(
+          'div',
+          { style: { height: "10%", width: "95%", border: "1px solid black", float: "left", background: '#f2f2f2' } },
           _react2.default.createElement(
-            _layout2.default,
-            null,
-            _react2.default.createElement(
-              Header,
-              { style: { width: '100%' } },
-              _react2.default.createElement(
-                _row2.default,
-                { gutter: 16 },
-                _react2.default.createElement(
-                  _col2.default,
-                  { className: 'gutter-row loginIcon', span: 1 },
-                  _react2.default.createElement(_avatar2.default, { size: 'large', icon: 'user' })
-                ),
-                _react2.default.createElement(
-                  _col2.default,
-                  { className: 'gutter-row', span: 4 },
-                  _react2.default.createElement(
-                    'h3',
-                    { style: { color: "white" } },
-                    'Accounts Overview'
-                  )
-                )
-              )
-            )
+            'div',
+            { style: { width: "5%", paddingLeft: "2%", paddingTop: "2%", float: "left" } },
+            _react2.default.createElement(_icon2.default, { type: 'left' })
+          ),
+          _react2.default.createElement(
+            'h3',
+            { style: { color: "#000" } },
+            'Accounts Overview'
           )
         ),
         _react2.default.createElement(
           'div',
-          { style: { height: "90%", width: "90%", border: "4px solid black", float: "left" } },
+          { style: { height: "90%", width: "95%", border: "1px solid black", float: "left" } },
           _react2.default.createElement(
             'div',
-            { style: { height: "50%", width: "50%", border: "4px solid black", float: "left" } },
+            { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
             _react2.default.createElement(
               'div',
-              { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
+              { style: { height: "50%", width: "50%", border: "1px solid black", float: "left", background: '#f2f2f2' } },
               _react2.default.createElement(_NumberCounter2.default, { min: 100, max: 1000 })
             ),
             _react2.default.createElement(
               'div',
-              { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
+              { style: { height: "50%", width: "50%", border: "1px solid black", float: "left", paddingTop: "5%", paddingLeft: "5%", background: '#f2f2f2' } },
               _react2.default.createElement(
                 'div',
-                { style: { height: "50%", width: "30%", float: "left" } },
+                { style: { height: "60%", width: "25%", float: "left", textAlign: 'center', background: '#ffffff' } },
                 _react2.default.createElement(
                   _icon2.default,
-                  { type: 'arrow-up', style: { fontSize: 32, color: '#08c', background: '#f2f2f2' } },
+                  { type: 'arrow-up', style: { fontSize: 32, color: '#08c' } },
                   _react2.default.createElement(
                     'span',
-                    { style: { fontSize: 16, color: '#08c', background: '#f2f2f2' } },
+                    { style: { fontSize: 12, color: '#08c' } },
                     'Sell'
                   )
                 )
               ),
+              _react2.default.createElement('div', { style: { width: "5%", height: "60%", float: "left" } }),
               _react2.default.createElement(
                 'div',
-                { style: { height: "50%", width: "30%", float: "left" } },
+                { style: { height: "60%", width: "25%", float: "left", background: '#ffffff', textAlign: 'center' } },
                 _react2.default.createElement(
                   _icon2.default,
-                  { type: 'arrow-down', style: { fontSize: 32, color: '#08c', background: '#f2f2f2' } },
+                  { type: 'arrow-down', style: { fontSize: 32, color: '#08c' } },
                   _react2.default.createElement(
                     'span',
-                    { style: { fontSize: 16, color: '#08c', background: '#f2f2f2' } },
+                    { style: { fontSize: 12, color: '#08c' } },
                     'Buy'
                   )
                 )
               ),
+              _react2.default.createElement('div', { style: { width: "5%", height: "60%", float: "left" } }),
               _react2.default.createElement(
                 'div',
-                { style: { height: "50%", width: "30%", float: "left" } },
+                { style: { height: "60%", width: "25%", float: "left", background: '#ffffff', textAlign: 'center' } },
                 _react2.default.createElement(
                   _icon2.default,
-                  { type: 'schedule', style: { fontSize: 32, color: '#08c', background: '#f2f2f2' } },
+                  { type: 'schedule', style: { fontSize: 32, color: '#08c' } },
                   _react2.default.createElement(
                     'span',
-                    { style: { fontSize: 16, color: '#08c', background: '#f2f2f2' } },
+                    { style: { fontSize: 12, color: '#08c' } },
                     'Order'
                   )
                 )
@@ -66972,14 +66847,14 @@ var LayoutPage = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
+              { style: { height: "50%", width: "50%", border: "1px solid black", float: "left", background: '#f2f2f2' } },
               _react2.default.createElement(_NumberCounter2.default, { min: 500, max: 5000 }),
               _react2.default.createElement('br', null),
               _react2.default.createElement(_DrawLineChart2.default, { type: 'line', size: 'small', layer: 'one', width: 15, height: 40 })
             ),
             _react2.default.createElement(
               'div',
-              { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
+              { style: { height: "50%", width: "50%", border: "1px solid black", float: "left", background: '#f2f2f2' } },
               _react2.default.createElement(_NumberCounter2.default, { min: 2500, max: 7500 }),
               _react2.default.createElement('br', null),
               _react2.default.createElement(_DrawLineChart2.default, { type: 'line', size: 'small', layer: 'two', width: 15, height: 25 })
@@ -67671,665 +67546,14 @@ Sider.contextTypes = {
 module.exports = exports['default'];
 
 /***/ }),
-/* 526 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _grid = __webpack_require__(269);
-
-exports['default'] = _grid.Row;
-module.exports = exports['default'];
-
-/***/ }),
-/* 527 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _defineProperty2 = __webpack_require__(6);
-
-var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-
-var _extends4 = __webpack_require__(7);
-
-var _extends5 = _interopRequireDefault(_extends4);
-
-var _typeof2 = __webpack_require__(37);
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
-var _classCallCheck2 = __webpack_require__(9);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(13);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = __webpack_require__(10);
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(11);
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = __webpack_require__(1);
-
-var React = _interopRequireWildcard(_react);
-
-var _classnames = __webpack_require__(5);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _propTypes = __webpack_require__(3);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var __rest = undefined && undefined.__rest || function (s, e) {
-    var t = {};
-    for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
-    }if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-        if (e.indexOf(p[i]) < 0) t[p[i]] = s[p[i]];
-    }return t;
-};
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-var enquire = void 0;
-if (typeof window !== 'undefined') {
-    var matchMediaPolyfill = function matchMediaPolyfill(mediaQuery) {
-        return {
-            media: mediaQuery,
-            matches: false,
-            addListener: function addListener() {},
-            removeListener: function removeListener() {}
-        };
-    };
-    window.matchMedia = window.matchMedia || matchMediaPolyfill;
-    enquire = __webpack_require__(528);
-}
-
-var responsiveArray = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
-var responsiveMap = {
-    xs: '(max-width: 575px)',
-    sm: '(min-width: 576px)',
-    md: '(min-width: 768px)',
-    lg: '(min-width: 992px)',
-    xl: '(min-width: 1200px)',
-    xxl: '(min-width: 1600px)'
-};
-
-var Row = function (_React$Component) {
-    (0, _inherits3['default'])(Row, _React$Component);
-
-    function Row() {
-        (0, _classCallCheck3['default'])(this, Row);
-
-        var _this = (0, _possibleConstructorReturn3['default'])(this, (Row.__proto__ || Object.getPrototypeOf(Row)).apply(this, arguments));
-
-        _this.state = {
-            screens: {}
-        };
-        return _this;
-    }
-
-    (0, _createClass3['default'])(Row, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var _this2 = this;
-
-            Object.keys(responsiveMap).map(function (screen) {
-                return enquire.register(responsiveMap[screen], {
-                    match: function match() {
-                        if ((0, _typeof3['default'])(_this2.props.gutter) !== 'object') {
-                            return;
-                        }
-                        _this2.setState(function (prevState) {
-                            return {
-                                screens: (0, _extends5['default'])({}, prevState.screens, (0, _defineProperty3['default'])({}, screen, true))
-                            };
-                        });
-                    },
-                    unmatch: function unmatch() {
-                        if ((0, _typeof3['default'])(_this2.props.gutter) !== 'object') {
-                            return;
-                        }
-                        _this2.setState(function (prevState) {
-                            return {
-                                screens: (0, _extends5['default'])({}, prevState.screens, (0, _defineProperty3['default'])({}, screen, false))
-                            };
-                        });
-                    },
-                    // Keep a empty destory to avoid triggering unmatch when unregister
-                    destroy: function destroy() {}
-                });
-            });
-        }
-    }, {
-        key: 'componentWillUnmount',
-        value: function componentWillUnmount() {
-            Object.keys(responsiveMap).map(function (screen) {
-                return enquire.unregister(responsiveMap[screen]);
-            });
-        }
-    }, {
-        key: 'getGutter',
-        value: function getGutter() {
-            var gutter = this.props.gutter;
-
-            if ((typeof gutter === 'undefined' ? 'undefined' : (0, _typeof3['default'])(gutter)) === 'object') {
-                for (var i = 0; i <= responsiveArray.length; i++) {
-                    var breakpoint = responsiveArray[i];
-                    if (this.state.screens[breakpoint] && gutter[breakpoint] !== undefined) {
-                        return gutter[breakpoint];
-                    }
-                }
-            }
-            return gutter;
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _classNames;
-
-            var _a = this.props,
-                type = _a.type,
-                justify = _a.justify,
-                align = _a.align,
-                className = _a.className,
-                style = _a.style,
-                children = _a.children,
-                _a$prefixCls = _a.prefixCls,
-                prefixCls = _a$prefixCls === undefined ? 'ant-row' : _a$prefixCls,
-                others = __rest(_a, ["type", "justify", "align", "className", "style", "children", "prefixCls"]);
-            var gutter = this.getGutter();
-            var classes = (0, _classnames2['default'])((_classNames = {}, (0, _defineProperty3['default'])(_classNames, prefixCls, !type), (0, _defineProperty3['default'])(_classNames, prefixCls + '-' + type, type), (0, _defineProperty3['default'])(_classNames, prefixCls + '-' + type + '-' + justify, type && justify), (0, _defineProperty3['default'])(_classNames, prefixCls + '-' + type + '-' + align, type && align), _classNames), className);
-            var rowStyle = gutter > 0 ? (0, _extends5['default'])({ marginLeft: gutter / -2, marginRight: gutter / -2 }, style) : style;
-            var cols = _react.Children.map(children, function (col) {
-                if (!col) {
-                    return null;
-                }
-                if (col.props && gutter > 0) {
-                    return (0, _react.cloneElement)(col, {
-                        style: (0, _extends5['default'])({ paddingLeft: gutter / 2, paddingRight: gutter / 2 }, col.props.style)
-                    });
-                }
-                return col;
-            });
-            var otherProps = (0, _extends5['default'])({}, others);
-            delete otherProps.gutter;
-            return React.createElement(
-                'div',
-                (0, _extends5['default'])({}, otherProps, { className: classes, style: rowStyle }),
-                cols
-            );
-        }
-    }]);
-    return Row;
-}(React.Component);
-
-exports['default'] = Row;
-
-Row.defaultProps = {
-    gutter: 0
-};
-Row.propTypes = {
-    type: _propTypes2['default'].string,
-    align: _propTypes2['default'].string,
-    justify: _propTypes2['default'].string,
-    className: _propTypes2['default'].string,
-    children: _propTypes2['default'].node,
-    gutter: _propTypes2['default'].oneOfType([_propTypes2['default'].object, _propTypes2['default'].number]),
-    prefixCls: _propTypes2['default'].string
-};
-module.exports = exports['default'];
-
-/***/ }),
-/* 528 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var MediaQueryDispatch = __webpack_require__(529);
-module.exports = new MediaQueryDispatch();
-
-
-/***/ }),
-/* 529 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var MediaQuery = __webpack_require__(530);
-var Util = __webpack_require__(270);
-var each = Util.each;
-var isFunction = Util.isFunction;
-var isArray = Util.isArray;
-
-/**
- * Allows for registration of query handlers.
- * Manages the query handler's state and is responsible for wiring up browser events
- *
- * @constructor
- */
-function MediaQueryDispatch () {
-    if(!window.matchMedia) {
-        throw new Error('matchMedia not present, legacy browsers require a polyfill');
-    }
-
-    this.queries = {};
-    this.browserIsIncapable = !window.matchMedia('only all').matches;
-}
-
-MediaQueryDispatch.prototype = {
-
-    constructor : MediaQueryDispatch,
-
-    /**
-     * Registers a handler for the given media query
-     *
-     * @param {string} q the media query
-     * @param {object || Array || Function} options either a single query handler object, a function, or an array of query handlers
-     * @param {function} options.match fired when query matched
-     * @param {function} [options.unmatch] fired when a query is no longer matched
-     * @param {function} [options.setup] fired when handler first triggered
-     * @param {boolean} [options.deferSetup=false] whether setup should be run immediately or deferred until query is first matched
-     * @param {boolean} [shouldDegrade=false] whether this particular media query should always run on incapable browsers
-     */
-    register : function(q, options, shouldDegrade) {
-        var queries         = this.queries,
-            isUnconditional = shouldDegrade && this.browserIsIncapable;
-
-        if(!queries[q]) {
-            queries[q] = new MediaQuery(q, isUnconditional);
-        }
-
-        //normalise to object in an array
-        if(isFunction(options)) {
-            options = { match : options };
-        }
-        if(!isArray(options)) {
-            options = [options];
-        }
-        each(options, function(handler) {
-            if (isFunction(handler)) {
-                handler = { match : handler };
-            }
-            queries[q].addHandler(handler);
-        });
-
-        return this;
-    },
-
-    /**
-     * unregisters a query and all it's handlers, or a specific handler for a query
-     *
-     * @param {string} q the media query to target
-     * @param {object || function} [handler] specific handler to unregister
-     */
-    unregister : function(q, handler) {
-        var query = this.queries[q];
-
-        if(query) {
-            if(handler) {
-                query.removeHandler(handler);
-            }
-            else {
-                query.clear();
-                delete this.queries[q];
-            }
-        }
-
-        return this;
-    }
-};
-
-module.exports = MediaQueryDispatch;
-
-
-/***/ }),
-/* 530 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var QueryHandler = __webpack_require__(531);
-var each = __webpack_require__(270).each;
-
-/**
- * Represents a single media query, manages it's state and registered handlers for this query
- *
- * @constructor
- * @param {string} query the media query string
- * @param {boolean} [isUnconditional=false] whether the media query should run regardless of whether the conditions are met. Primarily for helping older browsers deal with mobile-first design
- */
-function MediaQuery(query, isUnconditional) {
-    this.query = query;
-    this.isUnconditional = isUnconditional;
-    this.handlers = [];
-    this.mql = window.matchMedia(query);
-
-    var self = this;
-    this.listener = function(mql) {
-        // Chrome passes an MediaQueryListEvent object, while other browsers pass MediaQueryList directly
-        self.mql = mql.currentTarget || mql;
-        self.assess();
-    };
-    this.mql.addListener(this.listener);
-}
-
-MediaQuery.prototype = {
-
-    constuctor : MediaQuery,
-
-    /**
-     * add a handler for this query, triggering if already active
-     *
-     * @param {object} handler
-     * @param {function} handler.match callback for when query is activated
-     * @param {function} [handler.unmatch] callback for when query is deactivated
-     * @param {function} [handler.setup] callback for immediate execution when a query handler is registered
-     * @param {boolean} [handler.deferSetup=false] should the setup callback be deferred until the first time the handler is matched?
-     */
-    addHandler : function(handler) {
-        var qh = new QueryHandler(handler);
-        this.handlers.push(qh);
-
-        this.matches() && qh.on();
-    },
-
-    /**
-     * removes the given handler from the collection, and calls it's destroy methods
-     *
-     * @param {object || function} handler the handler to remove
-     */
-    removeHandler : function(handler) {
-        var handlers = this.handlers;
-        each(handlers, function(h, i) {
-            if(h.equals(handler)) {
-                h.destroy();
-                return !handlers.splice(i,1); //remove from array and exit each early
-            }
-        });
-    },
-
-    /**
-     * Determine whether the media query should be considered a match
-     *
-     * @return {Boolean} true if media query can be considered a match, false otherwise
-     */
-    matches : function() {
-        return this.mql.matches || this.isUnconditional;
-    },
-
-    /**
-     * Clears all handlers and unbinds events
-     */
-    clear : function() {
-        each(this.handlers, function(handler) {
-            handler.destroy();
-        });
-        this.mql.removeListener(this.listener);
-        this.handlers.length = 0; //clear array
-    },
-
-    /*
-        * Assesses the query, turning on all handlers if it matches, turning them off if it doesn't match
-        */
-    assess : function() {
-        var action = this.matches() ? 'on' : 'off';
-
-        each(this.handlers, function(handler) {
-            handler[action]();
-        });
-    }
-};
-
-module.exports = MediaQuery;
-
-
-/***/ }),
-/* 531 */
-/***/ (function(module, exports) {
-
-/**
- * Delegate to handle a media query being matched and unmatched.
- *
- * @param {object} options
- * @param {function} options.match callback for when the media query is matched
- * @param {function} [options.unmatch] callback for when the media query is unmatched
- * @param {function} [options.setup] one-time callback triggered the first time a query is matched
- * @param {boolean} [options.deferSetup=false] should the setup callback be run immediately, rather than first time query is matched?
- * @constructor
- */
-function QueryHandler(options) {
-    this.options = options;
-    !options.deferSetup && this.setup();
-}
-
-QueryHandler.prototype = {
-
-    constructor : QueryHandler,
-
-    /**
-     * coordinates setup of the handler
-     *
-     * @function
-     */
-    setup : function() {
-        if(this.options.setup) {
-            this.options.setup();
-        }
-        this.initialised = true;
-    },
-
-    /**
-     * coordinates setup and triggering of the handler
-     *
-     * @function
-     */
-    on : function() {
-        !this.initialised && this.setup();
-        this.options.match && this.options.match();
-    },
-
-    /**
-     * coordinates the unmatch event for the handler
-     *
-     * @function
-     */
-    off : function() {
-        this.options.unmatch && this.options.unmatch();
-    },
-
-    /**
-     * called when a handler is to be destroyed.
-     * delegates to the destroy or unmatch callbacks, depending on availability.
-     *
-     * @function
-     */
-    destroy : function() {
-        this.options.destroy ? this.options.destroy() : this.off();
-    },
-
-    /**
-     * determines equality by reference.
-     * if object is supplied compare options, if function, compare match callback
-     *
-     * @function
-     * @param {object || function} [target] the target for comparison
-     */
-    equals : function(target) {
-        return this.options === target || this.options.match === target;
-    }
-
-};
-
-module.exports = QueryHandler;
-
-
-/***/ }),
-/* 532 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _defineProperty2 = __webpack_require__(6);
-
-var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-
-var _extends3 = __webpack_require__(7);
-
-var _extends4 = _interopRequireDefault(_extends3);
-
-var _typeof2 = __webpack_require__(37);
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
-var _classCallCheck2 = __webpack_require__(9);
-
-var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = __webpack_require__(13);
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
-var _possibleConstructorReturn2 = __webpack_require__(10);
-
-var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-var _inherits2 = __webpack_require__(11);
-
-var _inherits3 = _interopRequireDefault(_inherits2);
-
-var _react = __webpack_require__(1);
-
-var React = _interopRequireWildcard(_react);
-
-var _propTypes = __webpack_require__(3);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _classnames = __webpack_require__(5);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var __rest = undefined && undefined.__rest || function (s, e) {
-    var t = {};
-    for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
-    }if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-        if (e.indexOf(p[i]) < 0) t[p[i]] = s[p[i]];
-    }return t;
-};
-
-var stringOrNumber = _propTypes2['default'].oneOfType([_propTypes2['default'].string, _propTypes2['default'].number]);
-var objectOrNumber = _propTypes2['default'].oneOfType([_propTypes2['default'].object, _propTypes2['default'].number]);
-
-var Col = function (_React$Component) {
-    (0, _inherits3['default'])(Col, _React$Component);
-
-    function Col() {
-        (0, _classCallCheck3['default'])(this, Col);
-        return (0, _possibleConstructorReturn3['default'])(this, (Col.__proto__ || Object.getPrototypeOf(Col)).apply(this, arguments));
-    }
-
-    (0, _createClass3['default'])(Col, [{
-        key: 'render',
-        value: function render() {
-            var _classNames;
-
-            var props = this.props;
-
-            var span = props.span,
-                order = props.order,
-                offset = props.offset,
-                push = props.push,
-                pull = props.pull,
-                className = props.className,
-                children = props.children,
-                _props$prefixCls = props.prefixCls,
-                prefixCls = _props$prefixCls === undefined ? 'ant-col' : _props$prefixCls,
-                others = __rest(props, ["span", "order", "offset", "push", "pull", "className", "children", "prefixCls"]);
-
-            var sizeClassObj = {};
-            ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(function (size) {
-                var _extends2;
-
-                var sizeProps = {};
-                if (typeof props[size] === 'number') {
-                    sizeProps.span = props[size];
-                } else if ((0, _typeof3['default'])(props[size]) === 'object') {
-                    sizeProps = props[size] || {};
-                }
-                delete others[size];
-                sizeClassObj = (0, _extends4['default'])({}, sizeClassObj, (_extends2 = {}, (0, _defineProperty3['default'])(_extends2, prefixCls + '-' + size + '-' + sizeProps.span, sizeProps.span !== undefined), (0, _defineProperty3['default'])(_extends2, prefixCls + '-' + size + '-order-' + sizeProps.order, sizeProps.order || sizeProps.order === 0), (0, _defineProperty3['default'])(_extends2, prefixCls + '-' + size + '-offset-' + sizeProps.offset, sizeProps.offset || sizeProps.offset === 0), (0, _defineProperty3['default'])(_extends2, prefixCls + '-' + size + '-push-' + sizeProps.push, sizeProps.push || sizeProps.push === 0), (0, _defineProperty3['default'])(_extends2, prefixCls + '-' + size + '-pull-' + sizeProps.pull, sizeProps.pull || sizeProps.pull === 0), _extends2));
-            });
-            var classes = (0, _classnames2['default'])((_classNames = {}, (0, _defineProperty3['default'])(_classNames, prefixCls + '-' + span, span !== undefined), (0, _defineProperty3['default'])(_classNames, prefixCls + '-order-' + order, order), (0, _defineProperty3['default'])(_classNames, prefixCls + '-offset-' + offset, offset), (0, _defineProperty3['default'])(_classNames, prefixCls + '-push-' + push, push), (0, _defineProperty3['default'])(_classNames, prefixCls + '-pull-' + pull, pull), _classNames), className, sizeClassObj);
-            return React.createElement(
-                'div',
-                (0, _extends4['default'])({}, others, { className: classes }),
-                children
-            );
-        }
-    }]);
-    return Col;
-}(React.Component);
-
-exports['default'] = Col;
-
-Col.propTypes = {
-    span: stringOrNumber,
-    order: stringOrNumber,
-    offset: stringOrNumber,
-    push: stringOrNumber,
-    pull: stringOrNumber,
-    className: _propTypes2['default'].string,
-    children: _propTypes2['default'].node,
-    xs: objectOrNumber,
-    sm: objectOrNumber,
-    md: objectOrNumber,
-    lg: objectOrNumber,
-    xl: objectOrNumber
-};
-module.exports = exports['default'];
-
-/***/ }),
-/* 533 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _grid = __webpack_require__(269);
-
-exports['default'] = _grid.Col;
-module.exports = exports['default'];
-
-/***/ }),
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */,
+/* 530 */,
+/* 531 */,
+/* 532 */,
+/* 533 */,
 /* 534 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -68575,42 +67799,9 @@ exports.push([module.i, "/* stylelint-disable at-rule-empty-line-before,at-rule-
 __webpack_require__(25);
 
 /***/ }),
-/* 539 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(25);
-
-__webpack_require__(271);
-
-/***/ }),
-/* 540 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(18)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "/* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */\n/* stylelint-disable no-duplicate-selectors */\n/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */\n/* stylelint-disable declaration-bang-space-before,no-duplicate-selectors */\n.ant-row {\n  position: relative;\n  margin-left: 0;\n  margin-right: 0;\n  height: auto;\n  zoom: 1;\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n.ant-row:before,\n.ant-row:after {\n  content: \" \";\n  display: table;\n}\n.ant-row:after {\n  clear: both;\n  visibility: hidden;\n  font-size: 0;\n  height: 0;\n}\n.ant-row-flex {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n  -webkit-flex-flow: row wrap;\n      -ms-flex-flow: row wrap;\n          flex-flow: row wrap;\n}\n.ant-row-flex:before,\n.ant-row-flex:after {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n}\n.ant-row-flex-start {\n  -webkit-box-pack: start;\n  -webkit-justify-content: flex-start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n.ant-row-flex-center {\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.ant-row-flex-end {\n  -webkit-box-pack: end;\n  -webkit-justify-content: flex-end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\n.ant-row-flex-space-between {\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n.ant-row-flex-space-around {\n  -webkit-justify-content: space-around;\n      -ms-flex-pack: distribute;\n          justify-content: space-around;\n}\n.ant-row-flex-top {\n  -webkit-box-align: start;\n  -webkit-align-items: flex-start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n}\n.ant-row-flex-middle {\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.ant-row-flex-bottom {\n  -webkit-box-align: end;\n  -webkit-align-items: flex-end;\n      -ms-flex-align: end;\n          align-items: flex-end;\n}\n.ant-col {\n  position: relative;\n  display: block;\n}\n.ant-col-1, .ant-col-xs-1, .ant-col-sm-1, .ant-col-md-1, .ant-col-lg-1, .ant-col-2, .ant-col-xs-2, .ant-col-sm-2, .ant-col-md-2, .ant-col-lg-2, .ant-col-3, .ant-col-xs-3, .ant-col-sm-3, .ant-col-md-3, .ant-col-lg-3, .ant-col-4, .ant-col-xs-4, .ant-col-sm-4, .ant-col-md-4, .ant-col-lg-4, .ant-col-5, .ant-col-xs-5, .ant-col-sm-5, .ant-col-md-5, .ant-col-lg-5, .ant-col-6, .ant-col-xs-6, .ant-col-sm-6, .ant-col-md-6, .ant-col-lg-6, .ant-col-7, .ant-col-xs-7, .ant-col-sm-7, .ant-col-md-7, .ant-col-lg-7, .ant-col-8, .ant-col-xs-8, .ant-col-sm-8, .ant-col-md-8, .ant-col-lg-8, .ant-col-9, .ant-col-xs-9, .ant-col-sm-9, .ant-col-md-9, .ant-col-lg-9, .ant-col-10, .ant-col-xs-10, .ant-col-sm-10, .ant-col-md-10, .ant-col-lg-10, .ant-col-11, .ant-col-xs-11, .ant-col-sm-11, .ant-col-md-11, .ant-col-lg-11, .ant-col-12, .ant-col-xs-12, .ant-col-sm-12, .ant-col-md-12, .ant-col-lg-12, .ant-col-13, .ant-col-xs-13, .ant-col-sm-13, .ant-col-md-13, .ant-col-lg-13, .ant-col-14, .ant-col-xs-14, .ant-col-sm-14, .ant-col-md-14, .ant-col-lg-14, .ant-col-15, .ant-col-xs-15, .ant-col-sm-15, .ant-col-md-15, .ant-col-lg-15, .ant-col-16, .ant-col-xs-16, .ant-col-sm-16, .ant-col-md-16, .ant-col-lg-16, .ant-col-17, .ant-col-xs-17, .ant-col-sm-17, .ant-col-md-17, .ant-col-lg-17, .ant-col-18, .ant-col-xs-18, .ant-col-sm-18, .ant-col-md-18, .ant-col-lg-18, .ant-col-19, .ant-col-xs-19, .ant-col-sm-19, .ant-col-md-19, .ant-col-lg-19, .ant-col-20, .ant-col-xs-20, .ant-col-sm-20, .ant-col-md-20, .ant-col-lg-20, .ant-col-21, .ant-col-xs-21, .ant-col-sm-21, .ant-col-md-21, .ant-col-lg-21, .ant-col-22, .ant-col-xs-22, .ant-col-sm-22, .ant-col-md-22, .ant-col-lg-22, .ant-col-23, .ant-col-xs-23, .ant-col-sm-23, .ant-col-md-23, .ant-col-lg-23, .ant-col-24, .ant-col-xs-24, .ant-col-sm-24, .ant-col-md-24, .ant-col-lg-24 {\n  position: relative;\n  min-height: 1px;\n  padding-left: 0;\n  padding-right: 0;\n}\n.ant-col-1, .ant-col-2, .ant-col-3, .ant-col-4, .ant-col-5, .ant-col-6, .ant-col-7, .ant-col-8, .ant-col-9, .ant-col-10, .ant-col-11, .ant-col-12, .ant-col-13, .ant-col-14, .ant-col-15, .ant-col-16, .ant-col-17, .ant-col-18, .ant-col-19, .ant-col-20, .ant-col-21, .ant-col-22, .ant-col-23, .ant-col-24 {\n  float: left;\n  -webkit-box-flex: 0;\n  -webkit-flex: 0 0 auto;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto;\n}\n.ant-col-24 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 100%;\n}\n.ant-col-push-24 {\n  left: 100%;\n}\n.ant-col-pull-24 {\n  right: 100%;\n}\n.ant-col-offset-24 {\n  margin-left: 100%;\n}\n.ant-col-order-24 {\n  -webkit-box-ordinal-group: 25;\n  -webkit-order: 24;\n      -ms-flex-order: 24;\n          order: 24;\n}\n.ant-col-23 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 95.83333333%;\n}\n.ant-col-push-23 {\n  left: 95.83333333%;\n}\n.ant-col-pull-23 {\n  right: 95.83333333%;\n}\n.ant-col-offset-23 {\n  margin-left: 95.83333333%;\n}\n.ant-col-order-23 {\n  -webkit-box-ordinal-group: 24;\n  -webkit-order: 23;\n      -ms-flex-order: 23;\n          order: 23;\n}\n.ant-col-22 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 91.66666667%;\n}\n.ant-col-push-22 {\n  left: 91.66666667%;\n}\n.ant-col-pull-22 {\n  right: 91.66666667%;\n}\n.ant-col-offset-22 {\n  margin-left: 91.66666667%;\n}\n.ant-col-order-22 {\n  -webkit-box-ordinal-group: 23;\n  -webkit-order: 22;\n      -ms-flex-order: 22;\n          order: 22;\n}\n.ant-col-21 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 87.5%;\n}\n.ant-col-push-21 {\n  left: 87.5%;\n}\n.ant-col-pull-21 {\n  right: 87.5%;\n}\n.ant-col-offset-21 {\n  margin-left: 87.5%;\n}\n.ant-col-order-21 {\n  -webkit-box-ordinal-group: 22;\n  -webkit-order: 21;\n      -ms-flex-order: 21;\n          order: 21;\n}\n.ant-col-20 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 83.33333333%;\n}\n.ant-col-push-20 {\n  left: 83.33333333%;\n}\n.ant-col-pull-20 {\n  right: 83.33333333%;\n}\n.ant-col-offset-20 {\n  margin-left: 83.33333333%;\n}\n.ant-col-order-20 {\n  -webkit-box-ordinal-group: 21;\n  -webkit-order: 20;\n      -ms-flex-order: 20;\n          order: 20;\n}\n.ant-col-19 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 79.16666667%;\n}\n.ant-col-push-19 {\n  left: 79.16666667%;\n}\n.ant-col-pull-19 {\n  right: 79.16666667%;\n}\n.ant-col-offset-19 {\n  margin-left: 79.16666667%;\n}\n.ant-col-order-19 {\n  -webkit-box-ordinal-group: 20;\n  -webkit-order: 19;\n      -ms-flex-order: 19;\n          order: 19;\n}\n.ant-col-18 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 75%;\n}\n.ant-col-push-18 {\n  left: 75%;\n}\n.ant-col-pull-18 {\n  right: 75%;\n}\n.ant-col-offset-18 {\n  margin-left: 75%;\n}\n.ant-col-order-18 {\n  -webkit-box-ordinal-group: 19;\n  -webkit-order: 18;\n      -ms-flex-order: 18;\n          order: 18;\n}\n.ant-col-17 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 70.83333333%;\n}\n.ant-col-push-17 {\n  left: 70.83333333%;\n}\n.ant-col-pull-17 {\n  right: 70.83333333%;\n}\n.ant-col-offset-17 {\n  margin-left: 70.83333333%;\n}\n.ant-col-order-17 {\n  -webkit-box-ordinal-group: 18;\n  -webkit-order: 17;\n      -ms-flex-order: 17;\n          order: 17;\n}\n.ant-col-16 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 66.66666667%;\n}\n.ant-col-push-16 {\n  left: 66.66666667%;\n}\n.ant-col-pull-16 {\n  right: 66.66666667%;\n}\n.ant-col-offset-16 {\n  margin-left: 66.66666667%;\n}\n.ant-col-order-16 {\n  -webkit-box-ordinal-group: 17;\n  -webkit-order: 16;\n      -ms-flex-order: 16;\n          order: 16;\n}\n.ant-col-15 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 62.5%;\n}\n.ant-col-push-15 {\n  left: 62.5%;\n}\n.ant-col-pull-15 {\n  right: 62.5%;\n}\n.ant-col-offset-15 {\n  margin-left: 62.5%;\n}\n.ant-col-order-15 {\n  -webkit-box-ordinal-group: 16;\n  -webkit-order: 15;\n      -ms-flex-order: 15;\n          order: 15;\n}\n.ant-col-14 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 58.33333333%;\n}\n.ant-col-push-14 {\n  left: 58.33333333%;\n}\n.ant-col-pull-14 {\n  right: 58.33333333%;\n}\n.ant-col-offset-14 {\n  margin-left: 58.33333333%;\n}\n.ant-col-order-14 {\n  -webkit-box-ordinal-group: 15;\n  -webkit-order: 14;\n      -ms-flex-order: 14;\n          order: 14;\n}\n.ant-col-13 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 54.16666667%;\n}\n.ant-col-push-13 {\n  left: 54.16666667%;\n}\n.ant-col-pull-13 {\n  right: 54.16666667%;\n}\n.ant-col-offset-13 {\n  margin-left: 54.16666667%;\n}\n.ant-col-order-13 {\n  -webkit-box-ordinal-group: 14;\n  -webkit-order: 13;\n      -ms-flex-order: 13;\n          order: 13;\n}\n.ant-col-12 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 50%;\n}\n.ant-col-push-12 {\n  left: 50%;\n}\n.ant-col-pull-12 {\n  right: 50%;\n}\n.ant-col-offset-12 {\n  margin-left: 50%;\n}\n.ant-col-order-12 {\n  -webkit-box-ordinal-group: 13;\n  -webkit-order: 12;\n      -ms-flex-order: 12;\n          order: 12;\n}\n.ant-col-11 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 45.83333333%;\n}\n.ant-col-push-11 {\n  left: 45.83333333%;\n}\n.ant-col-pull-11 {\n  right: 45.83333333%;\n}\n.ant-col-offset-11 {\n  margin-left: 45.83333333%;\n}\n.ant-col-order-11 {\n  -webkit-box-ordinal-group: 12;\n  -webkit-order: 11;\n      -ms-flex-order: 11;\n          order: 11;\n}\n.ant-col-10 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 41.66666667%;\n}\n.ant-col-push-10 {\n  left: 41.66666667%;\n}\n.ant-col-pull-10 {\n  right: 41.66666667%;\n}\n.ant-col-offset-10 {\n  margin-left: 41.66666667%;\n}\n.ant-col-order-10 {\n  -webkit-box-ordinal-group: 11;\n  -webkit-order: 10;\n      -ms-flex-order: 10;\n          order: 10;\n}\n.ant-col-9 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 37.5%;\n}\n.ant-col-push-9 {\n  left: 37.5%;\n}\n.ant-col-pull-9 {\n  right: 37.5%;\n}\n.ant-col-offset-9 {\n  margin-left: 37.5%;\n}\n.ant-col-order-9 {\n  -webkit-box-ordinal-group: 10;\n  -webkit-order: 9;\n      -ms-flex-order: 9;\n          order: 9;\n}\n.ant-col-8 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 33.33333333%;\n}\n.ant-col-push-8 {\n  left: 33.33333333%;\n}\n.ant-col-pull-8 {\n  right: 33.33333333%;\n}\n.ant-col-offset-8 {\n  margin-left: 33.33333333%;\n}\n.ant-col-order-8 {\n  -webkit-box-ordinal-group: 9;\n  -webkit-order: 8;\n      -ms-flex-order: 8;\n          order: 8;\n}\n.ant-col-7 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 29.16666667%;\n}\n.ant-col-push-7 {\n  left: 29.16666667%;\n}\n.ant-col-pull-7 {\n  right: 29.16666667%;\n}\n.ant-col-offset-7 {\n  margin-left: 29.16666667%;\n}\n.ant-col-order-7 {\n  -webkit-box-ordinal-group: 8;\n  -webkit-order: 7;\n      -ms-flex-order: 7;\n          order: 7;\n}\n.ant-col-6 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 25%;\n}\n.ant-col-push-6 {\n  left: 25%;\n}\n.ant-col-pull-6 {\n  right: 25%;\n}\n.ant-col-offset-6 {\n  margin-left: 25%;\n}\n.ant-col-order-6 {\n  -webkit-box-ordinal-group: 7;\n  -webkit-order: 6;\n      -ms-flex-order: 6;\n          order: 6;\n}\n.ant-col-5 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 20.83333333%;\n}\n.ant-col-push-5 {\n  left: 20.83333333%;\n}\n.ant-col-pull-5 {\n  right: 20.83333333%;\n}\n.ant-col-offset-5 {\n  margin-left: 20.83333333%;\n}\n.ant-col-order-5 {\n  -webkit-box-ordinal-group: 6;\n  -webkit-order: 5;\n      -ms-flex-order: 5;\n          order: 5;\n}\n.ant-col-4 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 16.66666667%;\n}\n.ant-col-push-4 {\n  left: 16.66666667%;\n}\n.ant-col-pull-4 {\n  right: 16.66666667%;\n}\n.ant-col-offset-4 {\n  margin-left: 16.66666667%;\n}\n.ant-col-order-4 {\n  -webkit-box-ordinal-group: 5;\n  -webkit-order: 4;\n      -ms-flex-order: 4;\n          order: 4;\n}\n.ant-col-3 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 12.5%;\n}\n.ant-col-push-3 {\n  left: 12.5%;\n}\n.ant-col-pull-3 {\n  right: 12.5%;\n}\n.ant-col-offset-3 {\n  margin-left: 12.5%;\n}\n.ant-col-order-3 {\n  -webkit-box-ordinal-group: 4;\n  -webkit-order: 3;\n      -ms-flex-order: 3;\n          order: 3;\n}\n.ant-col-2 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 8.33333333%;\n}\n.ant-col-push-2 {\n  left: 8.33333333%;\n}\n.ant-col-pull-2 {\n  right: 8.33333333%;\n}\n.ant-col-offset-2 {\n  margin-left: 8.33333333%;\n}\n.ant-col-order-2 {\n  -webkit-box-ordinal-group: 3;\n  -webkit-order: 2;\n      -ms-flex-order: 2;\n          order: 2;\n}\n.ant-col-1 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 4.16666667%;\n}\n.ant-col-push-1 {\n  left: 4.16666667%;\n}\n.ant-col-pull-1 {\n  right: 4.16666667%;\n}\n.ant-col-offset-1 {\n  margin-left: 4.16666667%;\n}\n.ant-col-order-1 {\n  -webkit-box-ordinal-group: 2;\n  -webkit-order: 1;\n      -ms-flex-order: 1;\n          order: 1;\n}\n.ant-col-0 {\n  display: none;\n}\n.ant-col-push-0 {\n  left: auto;\n}\n.ant-col-pull-0 {\n  right: auto;\n}\n.ant-col-push-0 {\n  left: auto;\n}\n.ant-col-pull-0 {\n  right: auto;\n}\n.ant-col-offset-0 {\n  margin-left: 0;\n}\n.ant-col-order-0 {\n  -webkit-box-ordinal-group: 1;\n  -webkit-order: 0;\n      -ms-flex-order: 0;\n          order: 0;\n}\n.ant-col-xs-1, .ant-col-xs-2, .ant-col-xs-3, .ant-col-xs-4, .ant-col-xs-5, .ant-col-xs-6, .ant-col-xs-7, .ant-col-xs-8, .ant-col-xs-9, .ant-col-xs-10, .ant-col-xs-11, .ant-col-xs-12, .ant-col-xs-13, .ant-col-xs-14, .ant-col-xs-15, .ant-col-xs-16, .ant-col-xs-17, .ant-col-xs-18, .ant-col-xs-19, .ant-col-xs-20, .ant-col-xs-21, .ant-col-xs-22, .ant-col-xs-23, .ant-col-xs-24 {\n  float: left;\n  -webkit-box-flex: 0;\n  -webkit-flex: 0 0 auto;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto;\n}\n.ant-col-xs-24 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 100%;\n}\n.ant-col-xs-push-24 {\n  left: 100%;\n}\n.ant-col-xs-pull-24 {\n  right: 100%;\n}\n.ant-col-xs-offset-24 {\n  margin-left: 100%;\n}\n.ant-col-xs-order-24 {\n  -webkit-box-ordinal-group: 25;\n  -webkit-order: 24;\n      -ms-flex-order: 24;\n          order: 24;\n}\n.ant-col-xs-23 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 95.83333333%;\n}\n.ant-col-xs-push-23 {\n  left: 95.83333333%;\n}\n.ant-col-xs-pull-23 {\n  right: 95.83333333%;\n}\n.ant-col-xs-offset-23 {\n  margin-left: 95.83333333%;\n}\n.ant-col-xs-order-23 {\n  -webkit-box-ordinal-group: 24;\n  -webkit-order: 23;\n      -ms-flex-order: 23;\n          order: 23;\n}\n.ant-col-xs-22 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 91.66666667%;\n}\n.ant-col-xs-push-22 {\n  left: 91.66666667%;\n}\n.ant-col-xs-pull-22 {\n  right: 91.66666667%;\n}\n.ant-col-xs-offset-22 {\n  margin-left: 91.66666667%;\n}\n.ant-col-xs-order-22 {\n  -webkit-box-ordinal-group: 23;\n  -webkit-order: 22;\n      -ms-flex-order: 22;\n          order: 22;\n}\n.ant-col-xs-21 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 87.5%;\n}\n.ant-col-xs-push-21 {\n  left: 87.5%;\n}\n.ant-col-xs-pull-21 {\n  right: 87.5%;\n}\n.ant-col-xs-offset-21 {\n  margin-left: 87.5%;\n}\n.ant-col-xs-order-21 {\n  -webkit-box-ordinal-group: 22;\n  -webkit-order: 21;\n      -ms-flex-order: 21;\n          order: 21;\n}\n.ant-col-xs-20 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 83.33333333%;\n}\n.ant-col-xs-push-20 {\n  left: 83.33333333%;\n}\n.ant-col-xs-pull-20 {\n  right: 83.33333333%;\n}\n.ant-col-xs-offset-20 {\n  margin-left: 83.33333333%;\n}\n.ant-col-xs-order-20 {\n  -webkit-box-ordinal-group: 21;\n  -webkit-order: 20;\n      -ms-flex-order: 20;\n          order: 20;\n}\n.ant-col-xs-19 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 79.16666667%;\n}\n.ant-col-xs-push-19 {\n  left: 79.16666667%;\n}\n.ant-col-xs-pull-19 {\n  right: 79.16666667%;\n}\n.ant-col-xs-offset-19 {\n  margin-left: 79.16666667%;\n}\n.ant-col-xs-order-19 {\n  -webkit-box-ordinal-group: 20;\n  -webkit-order: 19;\n      -ms-flex-order: 19;\n          order: 19;\n}\n.ant-col-xs-18 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 75%;\n}\n.ant-col-xs-push-18 {\n  left: 75%;\n}\n.ant-col-xs-pull-18 {\n  right: 75%;\n}\n.ant-col-xs-offset-18 {\n  margin-left: 75%;\n}\n.ant-col-xs-order-18 {\n  -webkit-box-ordinal-group: 19;\n  -webkit-order: 18;\n      -ms-flex-order: 18;\n          order: 18;\n}\n.ant-col-xs-17 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 70.83333333%;\n}\n.ant-col-xs-push-17 {\n  left: 70.83333333%;\n}\n.ant-col-xs-pull-17 {\n  right: 70.83333333%;\n}\n.ant-col-xs-offset-17 {\n  margin-left: 70.83333333%;\n}\n.ant-col-xs-order-17 {\n  -webkit-box-ordinal-group: 18;\n  -webkit-order: 17;\n      -ms-flex-order: 17;\n          order: 17;\n}\n.ant-col-xs-16 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 66.66666667%;\n}\n.ant-col-xs-push-16 {\n  left: 66.66666667%;\n}\n.ant-col-xs-pull-16 {\n  right: 66.66666667%;\n}\n.ant-col-xs-offset-16 {\n  margin-left: 66.66666667%;\n}\n.ant-col-xs-order-16 {\n  -webkit-box-ordinal-group: 17;\n  -webkit-order: 16;\n      -ms-flex-order: 16;\n          order: 16;\n}\n.ant-col-xs-15 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 62.5%;\n}\n.ant-col-xs-push-15 {\n  left: 62.5%;\n}\n.ant-col-xs-pull-15 {\n  right: 62.5%;\n}\n.ant-col-xs-offset-15 {\n  margin-left: 62.5%;\n}\n.ant-col-xs-order-15 {\n  -webkit-box-ordinal-group: 16;\n  -webkit-order: 15;\n      -ms-flex-order: 15;\n          order: 15;\n}\n.ant-col-xs-14 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 58.33333333%;\n}\n.ant-col-xs-push-14 {\n  left: 58.33333333%;\n}\n.ant-col-xs-pull-14 {\n  right: 58.33333333%;\n}\n.ant-col-xs-offset-14 {\n  margin-left: 58.33333333%;\n}\n.ant-col-xs-order-14 {\n  -webkit-box-ordinal-group: 15;\n  -webkit-order: 14;\n      -ms-flex-order: 14;\n          order: 14;\n}\n.ant-col-xs-13 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 54.16666667%;\n}\n.ant-col-xs-push-13 {\n  left: 54.16666667%;\n}\n.ant-col-xs-pull-13 {\n  right: 54.16666667%;\n}\n.ant-col-xs-offset-13 {\n  margin-left: 54.16666667%;\n}\n.ant-col-xs-order-13 {\n  -webkit-box-ordinal-group: 14;\n  -webkit-order: 13;\n      -ms-flex-order: 13;\n          order: 13;\n}\n.ant-col-xs-12 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 50%;\n}\n.ant-col-xs-push-12 {\n  left: 50%;\n}\n.ant-col-xs-pull-12 {\n  right: 50%;\n}\n.ant-col-xs-offset-12 {\n  margin-left: 50%;\n}\n.ant-col-xs-order-12 {\n  -webkit-box-ordinal-group: 13;\n  -webkit-order: 12;\n      -ms-flex-order: 12;\n          order: 12;\n}\n.ant-col-xs-11 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 45.83333333%;\n}\n.ant-col-xs-push-11 {\n  left: 45.83333333%;\n}\n.ant-col-xs-pull-11 {\n  right: 45.83333333%;\n}\n.ant-col-xs-offset-11 {\n  margin-left: 45.83333333%;\n}\n.ant-col-xs-order-11 {\n  -webkit-box-ordinal-group: 12;\n  -webkit-order: 11;\n      -ms-flex-order: 11;\n          order: 11;\n}\n.ant-col-xs-10 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 41.66666667%;\n}\n.ant-col-xs-push-10 {\n  left: 41.66666667%;\n}\n.ant-col-xs-pull-10 {\n  right: 41.66666667%;\n}\n.ant-col-xs-offset-10 {\n  margin-left: 41.66666667%;\n}\n.ant-col-xs-order-10 {\n  -webkit-box-ordinal-group: 11;\n  -webkit-order: 10;\n      -ms-flex-order: 10;\n          order: 10;\n}\n.ant-col-xs-9 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 37.5%;\n}\n.ant-col-xs-push-9 {\n  left: 37.5%;\n}\n.ant-col-xs-pull-9 {\n  right: 37.5%;\n}\n.ant-col-xs-offset-9 {\n  margin-left: 37.5%;\n}\n.ant-col-xs-order-9 {\n  -webkit-box-ordinal-group: 10;\n  -webkit-order: 9;\n      -ms-flex-order: 9;\n          order: 9;\n}\n.ant-col-xs-8 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 33.33333333%;\n}\n.ant-col-xs-push-8 {\n  left: 33.33333333%;\n}\n.ant-col-xs-pull-8 {\n  right: 33.33333333%;\n}\n.ant-col-xs-offset-8 {\n  margin-left: 33.33333333%;\n}\n.ant-col-xs-order-8 {\n  -webkit-box-ordinal-group: 9;\n  -webkit-order: 8;\n      -ms-flex-order: 8;\n          order: 8;\n}\n.ant-col-xs-7 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 29.16666667%;\n}\n.ant-col-xs-push-7 {\n  left: 29.16666667%;\n}\n.ant-col-xs-pull-7 {\n  right: 29.16666667%;\n}\n.ant-col-xs-offset-7 {\n  margin-left: 29.16666667%;\n}\n.ant-col-xs-order-7 {\n  -webkit-box-ordinal-group: 8;\n  -webkit-order: 7;\n      -ms-flex-order: 7;\n          order: 7;\n}\n.ant-col-xs-6 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 25%;\n}\n.ant-col-xs-push-6 {\n  left: 25%;\n}\n.ant-col-xs-pull-6 {\n  right: 25%;\n}\n.ant-col-xs-offset-6 {\n  margin-left: 25%;\n}\n.ant-col-xs-order-6 {\n  -webkit-box-ordinal-group: 7;\n  -webkit-order: 6;\n      -ms-flex-order: 6;\n          order: 6;\n}\n.ant-col-xs-5 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 20.83333333%;\n}\n.ant-col-xs-push-5 {\n  left: 20.83333333%;\n}\n.ant-col-xs-pull-5 {\n  right: 20.83333333%;\n}\n.ant-col-xs-offset-5 {\n  margin-left: 20.83333333%;\n}\n.ant-col-xs-order-5 {\n  -webkit-box-ordinal-group: 6;\n  -webkit-order: 5;\n      -ms-flex-order: 5;\n          order: 5;\n}\n.ant-col-xs-4 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 16.66666667%;\n}\n.ant-col-xs-push-4 {\n  left: 16.66666667%;\n}\n.ant-col-xs-pull-4 {\n  right: 16.66666667%;\n}\n.ant-col-xs-offset-4 {\n  margin-left: 16.66666667%;\n}\n.ant-col-xs-order-4 {\n  -webkit-box-ordinal-group: 5;\n  -webkit-order: 4;\n      -ms-flex-order: 4;\n          order: 4;\n}\n.ant-col-xs-3 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 12.5%;\n}\n.ant-col-xs-push-3 {\n  left: 12.5%;\n}\n.ant-col-xs-pull-3 {\n  right: 12.5%;\n}\n.ant-col-xs-offset-3 {\n  margin-left: 12.5%;\n}\n.ant-col-xs-order-3 {\n  -webkit-box-ordinal-group: 4;\n  -webkit-order: 3;\n      -ms-flex-order: 3;\n          order: 3;\n}\n.ant-col-xs-2 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 8.33333333%;\n}\n.ant-col-xs-push-2 {\n  left: 8.33333333%;\n}\n.ant-col-xs-pull-2 {\n  right: 8.33333333%;\n}\n.ant-col-xs-offset-2 {\n  margin-left: 8.33333333%;\n}\n.ant-col-xs-order-2 {\n  -webkit-box-ordinal-group: 3;\n  -webkit-order: 2;\n      -ms-flex-order: 2;\n          order: 2;\n}\n.ant-col-xs-1 {\n  display: block;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 4.16666667%;\n}\n.ant-col-xs-push-1 {\n  left: 4.16666667%;\n}\n.ant-col-xs-pull-1 {\n  right: 4.16666667%;\n}\n.ant-col-xs-offset-1 {\n  margin-left: 4.16666667%;\n}\n.ant-col-xs-order-1 {\n  -webkit-box-ordinal-group: 2;\n  -webkit-order: 1;\n      -ms-flex-order: 1;\n          order: 1;\n}\n.ant-col-xs-0 {\n  display: none;\n}\n.ant-col-push-0 {\n  left: auto;\n}\n.ant-col-pull-0 {\n  right: auto;\n}\n.ant-col-xs-push-0 {\n  left: auto;\n}\n.ant-col-xs-pull-0 {\n  right: auto;\n}\n.ant-col-xs-offset-0 {\n  margin-left: 0;\n}\n.ant-col-xs-order-0 {\n  -webkit-box-ordinal-group: 1;\n  -webkit-order: 0;\n      -ms-flex-order: 0;\n          order: 0;\n}\n@media (min-width: 576px) {\n  .ant-col-sm-1, .ant-col-sm-2, .ant-col-sm-3, .ant-col-sm-4, .ant-col-sm-5, .ant-col-sm-6, .ant-col-sm-7, .ant-col-sm-8, .ant-col-sm-9, .ant-col-sm-10, .ant-col-sm-11, .ant-col-sm-12, .ant-col-sm-13, .ant-col-sm-14, .ant-col-sm-15, .ant-col-sm-16, .ant-col-sm-17, .ant-col-sm-18, .ant-col-sm-19, .ant-col-sm-20, .ant-col-sm-21, .ant-col-sm-22, .ant-col-sm-23, .ant-col-sm-24 {\n    float: left;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 auto;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n  }\n  .ant-col-sm-24 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 100%;\n  }\n  .ant-col-sm-push-24 {\n    left: 100%;\n  }\n  .ant-col-sm-pull-24 {\n    right: 100%;\n  }\n  .ant-col-sm-offset-24 {\n    margin-left: 100%;\n  }\n  .ant-col-sm-order-24 {\n    -webkit-box-ordinal-group: 25;\n    -webkit-order: 24;\n        -ms-flex-order: 24;\n            order: 24;\n  }\n  .ant-col-sm-23 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 95.83333333%;\n  }\n  .ant-col-sm-push-23 {\n    left: 95.83333333%;\n  }\n  .ant-col-sm-pull-23 {\n    right: 95.83333333%;\n  }\n  .ant-col-sm-offset-23 {\n    margin-left: 95.83333333%;\n  }\n  .ant-col-sm-order-23 {\n    -webkit-box-ordinal-group: 24;\n    -webkit-order: 23;\n        -ms-flex-order: 23;\n            order: 23;\n  }\n  .ant-col-sm-22 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 91.66666667%;\n  }\n  .ant-col-sm-push-22 {\n    left: 91.66666667%;\n  }\n  .ant-col-sm-pull-22 {\n    right: 91.66666667%;\n  }\n  .ant-col-sm-offset-22 {\n    margin-left: 91.66666667%;\n  }\n  .ant-col-sm-order-22 {\n    -webkit-box-ordinal-group: 23;\n    -webkit-order: 22;\n        -ms-flex-order: 22;\n            order: 22;\n  }\n  .ant-col-sm-21 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 87.5%;\n  }\n  .ant-col-sm-push-21 {\n    left: 87.5%;\n  }\n  .ant-col-sm-pull-21 {\n    right: 87.5%;\n  }\n  .ant-col-sm-offset-21 {\n    margin-left: 87.5%;\n  }\n  .ant-col-sm-order-21 {\n    -webkit-box-ordinal-group: 22;\n    -webkit-order: 21;\n        -ms-flex-order: 21;\n            order: 21;\n  }\n  .ant-col-sm-20 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 83.33333333%;\n  }\n  .ant-col-sm-push-20 {\n    left: 83.33333333%;\n  }\n  .ant-col-sm-pull-20 {\n    right: 83.33333333%;\n  }\n  .ant-col-sm-offset-20 {\n    margin-left: 83.33333333%;\n  }\n  .ant-col-sm-order-20 {\n    -webkit-box-ordinal-group: 21;\n    -webkit-order: 20;\n        -ms-flex-order: 20;\n            order: 20;\n  }\n  .ant-col-sm-19 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 79.16666667%;\n  }\n  .ant-col-sm-push-19 {\n    left: 79.16666667%;\n  }\n  .ant-col-sm-pull-19 {\n    right: 79.16666667%;\n  }\n  .ant-col-sm-offset-19 {\n    margin-left: 79.16666667%;\n  }\n  .ant-col-sm-order-19 {\n    -webkit-box-ordinal-group: 20;\n    -webkit-order: 19;\n        -ms-flex-order: 19;\n            order: 19;\n  }\n  .ant-col-sm-18 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 75%;\n  }\n  .ant-col-sm-push-18 {\n    left: 75%;\n  }\n  .ant-col-sm-pull-18 {\n    right: 75%;\n  }\n  .ant-col-sm-offset-18 {\n    margin-left: 75%;\n  }\n  .ant-col-sm-order-18 {\n    -webkit-box-ordinal-group: 19;\n    -webkit-order: 18;\n        -ms-flex-order: 18;\n            order: 18;\n  }\n  .ant-col-sm-17 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 70.83333333%;\n  }\n  .ant-col-sm-push-17 {\n    left: 70.83333333%;\n  }\n  .ant-col-sm-pull-17 {\n    right: 70.83333333%;\n  }\n  .ant-col-sm-offset-17 {\n    margin-left: 70.83333333%;\n  }\n  .ant-col-sm-order-17 {\n    -webkit-box-ordinal-group: 18;\n    -webkit-order: 17;\n        -ms-flex-order: 17;\n            order: 17;\n  }\n  .ant-col-sm-16 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 66.66666667%;\n  }\n  .ant-col-sm-push-16 {\n    left: 66.66666667%;\n  }\n  .ant-col-sm-pull-16 {\n    right: 66.66666667%;\n  }\n  .ant-col-sm-offset-16 {\n    margin-left: 66.66666667%;\n  }\n  .ant-col-sm-order-16 {\n    -webkit-box-ordinal-group: 17;\n    -webkit-order: 16;\n        -ms-flex-order: 16;\n            order: 16;\n  }\n  .ant-col-sm-15 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 62.5%;\n  }\n  .ant-col-sm-push-15 {\n    left: 62.5%;\n  }\n  .ant-col-sm-pull-15 {\n    right: 62.5%;\n  }\n  .ant-col-sm-offset-15 {\n    margin-left: 62.5%;\n  }\n  .ant-col-sm-order-15 {\n    -webkit-box-ordinal-group: 16;\n    -webkit-order: 15;\n        -ms-flex-order: 15;\n            order: 15;\n  }\n  .ant-col-sm-14 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 58.33333333%;\n  }\n  .ant-col-sm-push-14 {\n    left: 58.33333333%;\n  }\n  .ant-col-sm-pull-14 {\n    right: 58.33333333%;\n  }\n  .ant-col-sm-offset-14 {\n    margin-left: 58.33333333%;\n  }\n  .ant-col-sm-order-14 {\n    -webkit-box-ordinal-group: 15;\n    -webkit-order: 14;\n        -ms-flex-order: 14;\n            order: 14;\n  }\n  .ant-col-sm-13 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 54.16666667%;\n  }\n  .ant-col-sm-push-13 {\n    left: 54.16666667%;\n  }\n  .ant-col-sm-pull-13 {\n    right: 54.16666667%;\n  }\n  .ant-col-sm-offset-13 {\n    margin-left: 54.16666667%;\n  }\n  .ant-col-sm-order-13 {\n    -webkit-box-ordinal-group: 14;\n    -webkit-order: 13;\n        -ms-flex-order: 13;\n            order: 13;\n  }\n  .ant-col-sm-12 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 50%;\n  }\n  .ant-col-sm-push-12 {\n    left: 50%;\n  }\n  .ant-col-sm-pull-12 {\n    right: 50%;\n  }\n  .ant-col-sm-offset-12 {\n    margin-left: 50%;\n  }\n  .ant-col-sm-order-12 {\n    -webkit-box-ordinal-group: 13;\n    -webkit-order: 12;\n        -ms-flex-order: 12;\n            order: 12;\n  }\n  .ant-col-sm-11 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 45.83333333%;\n  }\n  .ant-col-sm-push-11 {\n    left: 45.83333333%;\n  }\n  .ant-col-sm-pull-11 {\n    right: 45.83333333%;\n  }\n  .ant-col-sm-offset-11 {\n    margin-left: 45.83333333%;\n  }\n  .ant-col-sm-order-11 {\n    -webkit-box-ordinal-group: 12;\n    -webkit-order: 11;\n        -ms-flex-order: 11;\n            order: 11;\n  }\n  .ant-col-sm-10 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 41.66666667%;\n  }\n  .ant-col-sm-push-10 {\n    left: 41.66666667%;\n  }\n  .ant-col-sm-pull-10 {\n    right: 41.66666667%;\n  }\n  .ant-col-sm-offset-10 {\n    margin-left: 41.66666667%;\n  }\n  .ant-col-sm-order-10 {\n    -webkit-box-ordinal-group: 11;\n    -webkit-order: 10;\n        -ms-flex-order: 10;\n            order: 10;\n  }\n  .ant-col-sm-9 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 37.5%;\n  }\n  .ant-col-sm-push-9 {\n    left: 37.5%;\n  }\n  .ant-col-sm-pull-9 {\n    right: 37.5%;\n  }\n  .ant-col-sm-offset-9 {\n    margin-left: 37.5%;\n  }\n  .ant-col-sm-order-9 {\n    -webkit-box-ordinal-group: 10;\n    -webkit-order: 9;\n        -ms-flex-order: 9;\n            order: 9;\n  }\n  .ant-col-sm-8 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 33.33333333%;\n  }\n  .ant-col-sm-push-8 {\n    left: 33.33333333%;\n  }\n  .ant-col-sm-pull-8 {\n    right: 33.33333333%;\n  }\n  .ant-col-sm-offset-8 {\n    margin-left: 33.33333333%;\n  }\n  .ant-col-sm-order-8 {\n    -webkit-box-ordinal-group: 9;\n    -webkit-order: 8;\n        -ms-flex-order: 8;\n            order: 8;\n  }\n  .ant-col-sm-7 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 29.16666667%;\n  }\n  .ant-col-sm-push-7 {\n    left: 29.16666667%;\n  }\n  .ant-col-sm-pull-7 {\n    right: 29.16666667%;\n  }\n  .ant-col-sm-offset-7 {\n    margin-left: 29.16666667%;\n  }\n  .ant-col-sm-order-7 {\n    -webkit-box-ordinal-group: 8;\n    -webkit-order: 7;\n        -ms-flex-order: 7;\n            order: 7;\n  }\n  .ant-col-sm-6 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 25%;\n  }\n  .ant-col-sm-push-6 {\n    left: 25%;\n  }\n  .ant-col-sm-pull-6 {\n    right: 25%;\n  }\n  .ant-col-sm-offset-6 {\n    margin-left: 25%;\n  }\n  .ant-col-sm-order-6 {\n    -webkit-box-ordinal-group: 7;\n    -webkit-order: 6;\n        -ms-flex-order: 6;\n            order: 6;\n  }\n  .ant-col-sm-5 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 20.83333333%;\n  }\n  .ant-col-sm-push-5 {\n    left: 20.83333333%;\n  }\n  .ant-col-sm-pull-5 {\n    right: 20.83333333%;\n  }\n  .ant-col-sm-offset-5 {\n    margin-left: 20.83333333%;\n  }\n  .ant-col-sm-order-5 {\n    -webkit-box-ordinal-group: 6;\n    -webkit-order: 5;\n        -ms-flex-order: 5;\n            order: 5;\n  }\n  .ant-col-sm-4 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 16.66666667%;\n  }\n  .ant-col-sm-push-4 {\n    left: 16.66666667%;\n  }\n  .ant-col-sm-pull-4 {\n    right: 16.66666667%;\n  }\n  .ant-col-sm-offset-4 {\n    margin-left: 16.66666667%;\n  }\n  .ant-col-sm-order-4 {\n    -webkit-box-ordinal-group: 5;\n    -webkit-order: 4;\n        -ms-flex-order: 4;\n            order: 4;\n  }\n  .ant-col-sm-3 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 12.5%;\n  }\n  .ant-col-sm-push-3 {\n    left: 12.5%;\n  }\n  .ant-col-sm-pull-3 {\n    right: 12.5%;\n  }\n  .ant-col-sm-offset-3 {\n    margin-left: 12.5%;\n  }\n  .ant-col-sm-order-3 {\n    -webkit-box-ordinal-group: 4;\n    -webkit-order: 3;\n        -ms-flex-order: 3;\n            order: 3;\n  }\n  .ant-col-sm-2 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 8.33333333%;\n  }\n  .ant-col-sm-push-2 {\n    left: 8.33333333%;\n  }\n  .ant-col-sm-pull-2 {\n    right: 8.33333333%;\n  }\n  .ant-col-sm-offset-2 {\n    margin-left: 8.33333333%;\n  }\n  .ant-col-sm-order-2 {\n    -webkit-box-ordinal-group: 3;\n    -webkit-order: 2;\n        -ms-flex-order: 2;\n            order: 2;\n  }\n  .ant-col-sm-1 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 4.16666667%;\n  }\n  .ant-col-sm-push-1 {\n    left: 4.16666667%;\n  }\n  .ant-col-sm-pull-1 {\n    right: 4.16666667%;\n  }\n  .ant-col-sm-offset-1 {\n    margin-left: 4.16666667%;\n  }\n  .ant-col-sm-order-1 {\n    -webkit-box-ordinal-group: 2;\n    -webkit-order: 1;\n        -ms-flex-order: 1;\n            order: 1;\n  }\n  .ant-col-sm-0 {\n    display: none;\n  }\n  .ant-col-push-0 {\n    left: auto;\n  }\n  .ant-col-pull-0 {\n    right: auto;\n  }\n  .ant-col-sm-push-0 {\n    left: auto;\n  }\n  .ant-col-sm-pull-0 {\n    right: auto;\n  }\n  .ant-col-sm-offset-0 {\n    margin-left: 0;\n  }\n  .ant-col-sm-order-0 {\n    -webkit-box-ordinal-group: 1;\n    -webkit-order: 0;\n        -ms-flex-order: 0;\n            order: 0;\n  }\n}\n@media (min-width: 768px) {\n  .ant-col-md-1, .ant-col-md-2, .ant-col-md-3, .ant-col-md-4, .ant-col-md-5, .ant-col-md-6, .ant-col-md-7, .ant-col-md-8, .ant-col-md-9, .ant-col-md-10, .ant-col-md-11, .ant-col-md-12, .ant-col-md-13, .ant-col-md-14, .ant-col-md-15, .ant-col-md-16, .ant-col-md-17, .ant-col-md-18, .ant-col-md-19, .ant-col-md-20, .ant-col-md-21, .ant-col-md-22, .ant-col-md-23, .ant-col-md-24 {\n    float: left;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 auto;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n  }\n  .ant-col-md-24 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 100%;\n  }\n  .ant-col-md-push-24 {\n    left: 100%;\n  }\n  .ant-col-md-pull-24 {\n    right: 100%;\n  }\n  .ant-col-md-offset-24 {\n    margin-left: 100%;\n  }\n  .ant-col-md-order-24 {\n    -webkit-box-ordinal-group: 25;\n    -webkit-order: 24;\n        -ms-flex-order: 24;\n            order: 24;\n  }\n  .ant-col-md-23 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 95.83333333%;\n  }\n  .ant-col-md-push-23 {\n    left: 95.83333333%;\n  }\n  .ant-col-md-pull-23 {\n    right: 95.83333333%;\n  }\n  .ant-col-md-offset-23 {\n    margin-left: 95.83333333%;\n  }\n  .ant-col-md-order-23 {\n    -webkit-box-ordinal-group: 24;\n    -webkit-order: 23;\n        -ms-flex-order: 23;\n            order: 23;\n  }\n  .ant-col-md-22 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 91.66666667%;\n  }\n  .ant-col-md-push-22 {\n    left: 91.66666667%;\n  }\n  .ant-col-md-pull-22 {\n    right: 91.66666667%;\n  }\n  .ant-col-md-offset-22 {\n    margin-left: 91.66666667%;\n  }\n  .ant-col-md-order-22 {\n    -webkit-box-ordinal-group: 23;\n    -webkit-order: 22;\n        -ms-flex-order: 22;\n            order: 22;\n  }\n  .ant-col-md-21 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 87.5%;\n  }\n  .ant-col-md-push-21 {\n    left: 87.5%;\n  }\n  .ant-col-md-pull-21 {\n    right: 87.5%;\n  }\n  .ant-col-md-offset-21 {\n    margin-left: 87.5%;\n  }\n  .ant-col-md-order-21 {\n    -webkit-box-ordinal-group: 22;\n    -webkit-order: 21;\n        -ms-flex-order: 21;\n            order: 21;\n  }\n  .ant-col-md-20 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 83.33333333%;\n  }\n  .ant-col-md-push-20 {\n    left: 83.33333333%;\n  }\n  .ant-col-md-pull-20 {\n    right: 83.33333333%;\n  }\n  .ant-col-md-offset-20 {\n    margin-left: 83.33333333%;\n  }\n  .ant-col-md-order-20 {\n    -webkit-box-ordinal-group: 21;\n    -webkit-order: 20;\n        -ms-flex-order: 20;\n            order: 20;\n  }\n  .ant-col-md-19 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 79.16666667%;\n  }\n  .ant-col-md-push-19 {\n    left: 79.16666667%;\n  }\n  .ant-col-md-pull-19 {\n    right: 79.16666667%;\n  }\n  .ant-col-md-offset-19 {\n    margin-left: 79.16666667%;\n  }\n  .ant-col-md-order-19 {\n    -webkit-box-ordinal-group: 20;\n    -webkit-order: 19;\n        -ms-flex-order: 19;\n            order: 19;\n  }\n  .ant-col-md-18 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 75%;\n  }\n  .ant-col-md-push-18 {\n    left: 75%;\n  }\n  .ant-col-md-pull-18 {\n    right: 75%;\n  }\n  .ant-col-md-offset-18 {\n    margin-left: 75%;\n  }\n  .ant-col-md-order-18 {\n    -webkit-box-ordinal-group: 19;\n    -webkit-order: 18;\n        -ms-flex-order: 18;\n            order: 18;\n  }\n  .ant-col-md-17 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 70.83333333%;\n  }\n  .ant-col-md-push-17 {\n    left: 70.83333333%;\n  }\n  .ant-col-md-pull-17 {\n    right: 70.83333333%;\n  }\n  .ant-col-md-offset-17 {\n    margin-left: 70.83333333%;\n  }\n  .ant-col-md-order-17 {\n    -webkit-box-ordinal-group: 18;\n    -webkit-order: 17;\n        -ms-flex-order: 17;\n            order: 17;\n  }\n  .ant-col-md-16 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 66.66666667%;\n  }\n  .ant-col-md-push-16 {\n    left: 66.66666667%;\n  }\n  .ant-col-md-pull-16 {\n    right: 66.66666667%;\n  }\n  .ant-col-md-offset-16 {\n    margin-left: 66.66666667%;\n  }\n  .ant-col-md-order-16 {\n    -webkit-box-ordinal-group: 17;\n    -webkit-order: 16;\n        -ms-flex-order: 16;\n            order: 16;\n  }\n  .ant-col-md-15 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 62.5%;\n  }\n  .ant-col-md-push-15 {\n    left: 62.5%;\n  }\n  .ant-col-md-pull-15 {\n    right: 62.5%;\n  }\n  .ant-col-md-offset-15 {\n    margin-left: 62.5%;\n  }\n  .ant-col-md-order-15 {\n    -webkit-box-ordinal-group: 16;\n    -webkit-order: 15;\n        -ms-flex-order: 15;\n            order: 15;\n  }\n  .ant-col-md-14 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 58.33333333%;\n  }\n  .ant-col-md-push-14 {\n    left: 58.33333333%;\n  }\n  .ant-col-md-pull-14 {\n    right: 58.33333333%;\n  }\n  .ant-col-md-offset-14 {\n    margin-left: 58.33333333%;\n  }\n  .ant-col-md-order-14 {\n    -webkit-box-ordinal-group: 15;\n    -webkit-order: 14;\n        -ms-flex-order: 14;\n            order: 14;\n  }\n  .ant-col-md-13 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 54.16666667%;\n  }\n  .ant-col-md-push-13 {\n    left: 54.16666667%;\n  }\n  .ant-col-md-pull-13 {\n    right: 54.16666667%;\n  }\n  .ant-col-md-offset-13 {\n    margin-left: 54.16666667%;\n  }\n  .ant-col-md-order-13 {\n    -webkit-box-ordinal-group: 14;\n    -webkit-order: 13;\n        -ms-flex-order: 13;\n            order: 13;\n  }\n  .ant-col-md-12 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 50%;\n  }\n  .ant-col-md-push-12 {\n    left: 50%;\n  }\n  .ant-col-md-pull-12 {\n    right: 50%;\n  }\n  .ant-col-md-offset-12 {\n    margin-left: 50%;\n  }\n  .ant-col-md-order-12 {\n    -webkit-box-ordinal-group: 13;\n    -webkit-order: 12;\n        -ms-flex-order: 12;\n            order: 12;\n  }\n  .ant-col-md-11 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 45.83333333%;\n  }\n  .ant-col-md-push-11 {\n    left: 45.83333333%;\n  }\n  .ant-col-md-pull-11 {\n    right: 45.83333333%;\n  }\n  .ant-col-md-offset-11 {\n    margin-left: 45.83333333%;\n  }\n  .ant-col-md-order-11 {\n    -webkit-box-ordinal-group: 12;\n    -webkit-order: 11;\n        -ms-flex-order: 11;\n            order: 11;\n  }\n  .ant-col-md-10 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 41.66666667%;\n  }\n  .ant-col-md-push-10 {\n    left: 41.66666667%;\n  }\n  .ant-col-md-pull-10 {\n    right: 41.66666667%;\n  }\n  .ant-col-md-offset-10 {\n    margin-left: 41.66666667%;\n  }\n  .ant-col-md-order-10 {\n    -webkit-box-ordinal-group: 11;\n    -webkit-order: 10;\n        -ms-flex-order: 10;\n            order: 10;\n  }\n  .ant-col-md-9 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 37.5%;\n  }\n  .ant-col-md-push-9 {\n    left: 37.5%;\n  }\n  .ant-col-md-pull-9 {\n    right: 37.5%;\n  }\n  .ant-col-md-offset-9 {\n    margin-left: 37.5%;\n  }\n  .ant-col-md-order-9 {\n    -webkit-box-ordinal-group: 10;\n    -webkit-order: 9;\n        -ms-flex-order: 9;\n            order: 9;\n  }\n  .ant-col-md-8 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 33.33333333%;\n  }\n  .ant-col-md-push-8 {\n    left: 33.33333333%;\n  }\n  .ant-col-md-pull-8 {\n    right: 33.33333333%;\n  }\n  .ant-col-md-offset-8 {\n    margin-left: 33.33333333%;\n  }\n  .ant-col-md-order-8 {\n    -webkit-box-ordinal-group: 9;\n    -webkit-order: 8;\n        -ms-flex-order: 8;\n            order: 8;\n  }\n  .ant-col-md-7 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 29.16666667%;\n  }\n  .ant-col-md-push-7 {\n    left: 29.16666667%;\n  }\n  .ant-col-md-pull-7 {\n    right: 29.16666667%;\n  }\n  .ant-col-md-offset-7 {\n    margin-left: 29.16666667%;\n  }\n  .ant-col-md-order-7 {\n    -webkit-box-ordinal-group: 8;\n    -webkit-order: 7;\n        -ms-flex-order: 7;\n            order: 7;\n  }\n  .ant-col-md-6 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 25%;\n  }\n  .ant-col-md-push-6 {\n    left: 25%;\n  }\n  .ant-col-md-pull-6 {\n    right: 25%;\n  }\n  .ant-col-md-offset-6 {\n    margin-left: 25%;\n  }\n  .ant-col-md-order-6 {\n    -webkit-box-ordinal-group: 7;\n    -webkit-order: 6;\n        -ms-flex-order: 6;\n            order: 6;\n  }\n  .ant-col-md-5 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 20.83333333%;\n  }\n  .ant-col-md-push-5 {\n    left: 20.83333333%;\n  }\n  .ant-col-md-pull-5 {\n    right: 20.83333333%;\n  }\n  .ant-col-md-offset-5 {\n    margin-left: 20.83333333%;\n  }\n  .ant-col-md-order-5 {\n    -webkit-box-ordinal-group: 6;\n    -webkit-order: 5;\n        -ms-flex-order: 5;\n            order: 5;\n  }\n  .ant-col-md-4 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 16.66666667%;\n  }\n  .ant-col-md-push-4 {\n    left: 16.66666667%;\n  }\n  .ant-col-md-pull-4 {\n    right: 16.66666667%;\n  }\n  .ant-col-md-offset-4 {\n    margin-left: 16.66666667%;\n  }\n  .ant-col-md-order-4 {\n    -webkit-box-ordinal-group: 5;\n    -webkit-order: 4;\n        -ms-flex-order: 4;\n            order: 4;\n  }\n  .ant-col-md-3 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 12.5%;\n  }\n  .ant-col-md-push-3 {\n    left: 12.5%;\n  }\n  .ant-col-md-pull-3 {\n    right: 12.5%;\n  }\n  .ant-col-md-offset-3 {\n    margin-left: 12.5%;\n  }\n  .ant-col-md-order-3 {\n    -webkit-box-ordinal-group: 4;\n    -webkit-order: 3;\n        -ms-flex-order: 3;\n            order: 3;\n  }\n  .ant-col-md-2 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 8.33333333%;\n  }\n  .ant-col-md-push-2 {\n    left: 8.33333333%;\n  }\n  .ant-col-md-pull-2 {\n    right: 8.33333333%;\n  }\n  .ant-col-md-offset-2 {\n    margin-left: 8.33333333%;\n  }\n  .ant-col-md-order-2 {\n    -webkit-box-ordinal-group: 3;\n    -webkit-order: 2;\n        -ms-flex-order: 2;\n            order: 2;\n  }\n  .ant-col-md-1 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 4.16666667%;\n  }\n  .ant-col-md-push-1 {\n    left: 4.16666667%;\n  }\n  .ant-col-md-pull-1 {\n    right: 4.16666667%;\n  }\n  .ant-col-md-offset-1 {\n    margin-left: 4.16666667%;\n  }\n  .ant-col-md-order-1 {\n    -webkit-box-ordinal-group: 2;\n    -webkit-order: 1;\n        -ms-flex-order: 1;\n            order: 1;\n  }\n  .ant-col-md-0 {\n    display: none;\n  }\n  .ant-col-push-0 {\n    left: auto;\n  }\n  .ant-col-pull-0 {\n    right: auto;\n  }\n  .ant-col-md-push-0 {\n    left: auto;\n  }\n  .ant-col-md-pull-0 {\n    right: auto;\n  }\n  .ant-col-md-offset-0 {\n    margin-left: 0;\n  }\n  .ant-col-md-order-0 {\n    -webkit-box-ordinal-group: 1;\n    -webkit-order: 0;\n        -ms-flex-order: 0;\n            order: 0;\n  }\n}\n@media (min-width: 992px) {\n  .ant-col-lg-1, .ant-col-lg-2, .ant-col-lg-3, .ant-col-lg-4, .ant-col-lg-5, .ant-col-lg-6, .ant-col-lg-7, .ant-col-lg-8, .ant-col-lg-9, .ant-col-lg-10, .ant-col-lg-11, .ant-col-lg-12, .ant-col-lg-13, .ant-col-lg-14, .ant-col-lg-15, .ant-col-lg-16, .ant-col-lg-17, .ant-col-lg-18, .ant-col-lg-19, .ant-col-lg-20, .ant-col-lg-21, .ant-col-lg-22, .ant-col-lg-23, .ant-col-lg-24 {\n    float: left;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 auto;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n  }\n  .ant-col-lg-24 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 100%;\n  }\n  .ant-col-lg-push-24 {\n    left: 100%;\n  }\n  .ant-col-lg-pull-24 {\n    right: 100%;\n  }\n  .ant-col-lg-offset-24 {\n    margin-left: 100%;\n  }\n  .ant-col-lg-order-24 {\n    -webkit-box-ordinal-group: 25;\n    -webkit-order: 24;\n        -ms-flex-order: 24;\n            order: 24;\n  }\n  .ant-col-lg-23 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 95.83333333%;\n  }\n  .ant-col-lg-push-23 {\n    left: 95.83333333%;\n  }\n  .ant-col-lg-pull-23 {\n    right: 95.83333333%;\n  }\n  .ant-col-lg-offset-23 {\n    margin-left: 95.83333333%;\n  }\n  .ant-col-lg-order-23 {\n    -webkit-box-ordinal-group: 24;\n    -webkit-order: 23;\n        -ms-flex-order: 23;\n            order: 23;\n  }\n  .ant-col-lg-22 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 91.66666667%;\n  }\n  .ant-col-lg-push-22 {\n    left: 91.66666667%;\n  }\n  .ant-col-lg-pull-22 {\n    right: 91.66666667%;\n  }\n  .ant-col-lg-offset-22 {\n    margin-left: 91.66666667%;\n  }\n  .ant-col-lg-order-22 {\n    -webkit-box-ordinal-group: 23;\n    -webkit-order: 22;\n        -ms-flex-order: 22;\n            order: 22;\n  }\n  .ant-col-lg-21 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 87.5%;\n  }\n  .ant-col-lg-push-21 {\n    left: 87.5%;\n  }\n  .ant-col-lg-pull-21 {\n    right: 87.5%;\n  }\n  .ant-col-lg-offset-21 {\n    margin-left: 87.5%;\n  }\n  .ant-col-lg-order-21 {\n    -webkit-box-ordinal-group: 22;\n    -webkit-order: 21;\n        -ms-flex-order: 21;\n            order: 21;\n  }\n  .ant-col-lg-20 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 83.33333333%;\n  }\n  .ant-col-lg-push-20 {\n    left: 83.33333333%;\n  }\n  .ant-col-lg-pull-20 {\n    right: 83.33333333%;\n  }\n  .ant-col-lg-offset-20 {\n    margin-left: 83.33333333%;\n  }\n  .ant-col-lg-order-20 {\n    -webkit-box-ordinal-group: 21;\n    -webkit-order: 20;\n        -ms-flex-order: 20;\n            order: 20;\n  }\n  .ant-col-lg-19 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 79.16666667%;\n  }\n  .ant-col-lg-push-19 {\n    left: 79.16666667%;\n  }\n  .ant-col-lg-pull-19 {\n    right: 79.16666667%;\n  }\n  .ant-col-lg-offset-19 {\n    margin-left: 79.16666667%;\n  }\n  .ant-col-lg-order-19 {\n    -webkit-box-ordinal-group: 20;\n    -webkit-order: 19;\n        -ms-flex-order: 19;\n            order: 19;\n  }\n  .ant-col-lg-18 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 75%;\n  }\n  .ant-col-lg-push-18 {\n    left: 75%;\n  }\n  .ant-col-lg-pull-18 {\n    right: 75%;\n  }\n  .ant-col-lg-offset-18 {\n    margin-left: 75%;\n  }\n  .ant-col-lg-order-18 {\n    -webkit-box-ordinal-group: 19;\n    -webkit-order: 18;\n        -ms-flex-order: 18;\n            order: 18;\n  }\n  .ant-col-lg-17 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 70.83333333%;\n  }\n  .ant-col-lg-push-17 {\n    left: 70.83333333%;\n  }\n  .ant-col-lg-pull-17 {\n    right: 70.83333333%;\n  }\n  .ant-col-lg-offset-17 {\n    margin-left: 70.83333333%;\n  }\n  .ant-col-lg-order-17 {\n    -webkit-box-ordinal-group: 18;\n    -webkit-order: 17;\n        -ms-flex-order: 17;\n            order: 17;\n  }\n  .ant-col-lg-16 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 66.66666667%;\n  }\n  .ant-col-lg-push-16 {\n    left: 66.66666667%;\n  }\n  .ant-col-lg-pull-16 {\n    right: 66.66666667%;\n  }\n  .ant-col-lg-offset-16 {\n    margin-left: 66.66666667%;\n  }\n  .ant-col-lg-order-16 {\n    -webkit-box-ordinal-group: 17;\n    -webkit-order: 16;\n        -ms-flex-order: 16;\n            order: 16;\n  }\n  .ant-col-lg-15 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 62.5%;\n  }\n  .ant-col-lg-push-15 {\n    left: 62.5%;\n  }\n  .ant-col-lg-pull-15 {\n    right: 62.5%;\n  }\n  .ant-col-lg-offset-15 {\n    margin-left: 62.5%;\n  }\n  .ant-col-lg-order-15 {\n    -webkit-box-ordinal-group: 16;\n    -webkit-order: 15;\n        -ms-flex-order: 15;\n            order: 15;\n  }\n  .ant-col-lg-14 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 58.33333333%;\n  }\n  .ant-col-lg-push-14 {\n    left: 58.33333333%;\n  }\n  .ant-col-lg-pull-14 {\n    right: 58.33333333%;\n  }\n  .ant-col-lg-offset-14 {\n    margin-left: 58.33333333%;\n  }\n  .ant-col-lg-order-14 {\n    -webkit-box-ordinal-group: 15;\n    -webkit-order: 14;\n        -ms-flex-order: 14;\n            order: 14;\n  }\n  .ant-col-lg-13 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 54.16666667%;\n  }\n  .ant-col-lg-push-13 {\n    left: 54.16666667%;\n  }\n  .ant-col-lg-pull-13 {\n    right: 54.16666667%;\n  }\n  .ant-col-lg-offset-13 {\n    margin-left: 54.16666667%;\n  }\n  .ant-col-lg-order-13 {\n    -webkit-box-ordinal-group: 14;\n    -webkit-order: 13;\n        -ms-flex-order: 13;\n            order: 13;\n  }\n  .ant-col-lg-12 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 50%;\n  }\n  .ant-col-lg-push-12 {\n    left: 50%;\n  }\n  .ant-col-lg-pull-12 {\n    right: 50%;\n  }\n  .ant-col-lg-offset-12 {\n    margin-left: 50%;\n  }\n  .ant-col-lg-order-12 {\n    -webkit-box-ordinal-group: 13;\n    -webkit-order: 12;\n        -ms-flex-order: 12;\n            order: 12;\n  }\n  .ant-col-lg-11 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 45.83333333%;\n  }\n  .ant-col-lg-push-11 {\n    left: 45.83333333%;\n  }\n  .ant-col-lg-pull-11 {\n    right: 45.83333333%;\n  }\n  .ant-col-lg-offset-11 {\n    margin-left: 45.83333333%;\n  }\n  .ant-col-lg-order-11 {\n    -webkit-box-ordinal-group: 12;\n    -webkit-order: 11;\n        -ms-flex-order: 11;\n            order: 11;\n  }\n  .ant-col-lg-10 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 41.66666667%;\n  }\n  .ant-col-lg-push-10 {\n    left: 41.66666667%;\n  }\n  .ant-col-lg-pull-10 {\n    right: 41.66666667%;\n  }\n  .ant-col-lg-offset-10 {\n    margin-left: 41.66666667%;\n  }\n  .ant-col-lg-order-10 {\n    -webkit-box-ordinal-group: 11;\n    -webkit-order: 10;\n        -ms-flex-order: 10;\n            order: 10;\n  }\n  .ant-col-lg-9 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 37.5%;\n  }\n  .ant-col-lg-push-9 {\n    left: 37.5%;\n  }\n  .ant-col-lg-pull-9 {\n    right: 37.5%;\n  }\n  .ant-col-lg-offset-9 {\n    margin-left: 37.5%;\n  }\n  .ant-col-lg-order-9 {\n    -webkit-box-ordinal-group: 10;\n    -webkit-order: 9;\n        -ms-flex-order: 9;\n            order: 9;\n  }\n  .ant-col-lg-8 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 33.33333333%;\n  }\n  .ant-col-lg-push-8 {\n    left: 33.33333333%;\n  }\n  .ant-col-lg-pull-8 {\n    right: 33.33333333%;\n  }\n  .ant-col-lg-offset-8 {\n    margin-left: 33.33333333%;\n  }\n  .ant-col-lg-order-8 {\n    -webkit-box-ordinal-group: 9;\n    -webkit-order: 8;\n        -ms-flex-order: 8;\n            order: 8;\n  }\n  .ant-col-lg-7 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 29.16666667%;\n  }\n  .ant-col-lg-push-7 {\n    left: 29.16666667%;\n  }\n  .ant-col-lg-pull-7 {\n    right: 29.16666667%;\n  }\n  .ant-col-lg-offset-7 {\n    margin-left: 29.16666667%;\n  }\n  .ant-col-lg-order-7 {\n    -webkit-box-ordinal-group: 8;\n    -webkit-order: 7;\n        -ms-flex-order: 7;\n            order: 7;\n  }\n  .ant-col-lg-6 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 25%;\n  }\n  .ant-col-lg-push-6 {\n    left: 25%;\n  }\n  .ant-col-lg-pull-6 {\n    right: 25%;\n  }\n  .ant-col-lg-offset-6 {\n    margin-left: 25%;\n  }\n  .ant-col-lg-order-6 {\n    -webkit-box-ordinal-group: 7;\n    -webkit-order: 6;\n        -ms-flex-order: 6;\n            order: 6;\n  }\n  .ant-col-lg-5 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 20.83333333%;\n  }\n  .ant-col-lg-push-5 {\n    left: 20.83333333%;\n  }\n  .ant-col-lg-pull-5 {\n    right: 20.83333333%;\n  }\n  .ant-col-lg-offset-5 {\n    margin-left: 20.83333333%;\n  }\n  .ant-col-lg-order-5 {\n    -webkit-box-ordinal-group: 6;\n    -webkit-order: 5;\n        -ms-flex-order: 5;\n            order: 5;\n  }\n  .ant-col-lg-4 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 16.66666667%;\n  }\n  .ant-col-lg-push-4 {\n    left: 16.66666667%;\n  }\n  .ant-col-lg-pull-4 {\n    right: 16.66666667%;\n  }\n  .ant-col-lg-offset-4 {\n    margin-left: 16.66666667%;\n  }\n  .ant-col-lg-order-4 {\n    -webkit-box-ordinal-group: 5;\n    -webkit-order: 4;\n        -ms-flex-order: 4;\n            order: 4;\n  }\n  .ant-col-lg-3 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 12.5%;\n  }\n  .ant-col-lg-push-3 {\n    left: 12.5%;\n  }\n  .ant-col-lg-pull-3 {\n    right: 12.5%;\n  }\n  .ant-col-lg-offset-3 {\n    margin-left: 12.5%;\n  }\n  .ant-col-lg-order-3 {\n    -webkit-box-ordinal-group: 4;\n    -webkit-order: 3;\n        -ms-flex-order: 3;\n            order: 3;\n  }\n  .ant-col-lg-2 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 8.33333333%;\n  }\n  .ant-col-lg-push-2 {\n    left: 8.33333333%;\n  }\n  .ant-col-lg-pull-2 {\n    right: 8.33333333%;\n  }\n  .ant-col-lg-offset-2 {\n    margin-left: 8.33333333%;\n  }\n  .ant-col-lg-order-2 {\n    -webkit-box-ordinal-group: 3;\n    -webkit-order: 2;\n        -ms-flex-order: 2;\n            order: 2;\n  }\n  .ant-col-lg-1 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 4.16666667%;\n  }\n  .ant-col-lg-push-1 {\n    left: 4.16666667%;\n  }\n  .ant-col-lg-pull-1 {\n    right: 4.16666667%;\n  }\n  .ant-col-lg-offset-1 {\n    margin-left: 4.16666667%;\n  }\n  .ant-col-lg-order-1 {\n    -webkit-box-ordinal-group: 2;\n    -webkit-order: 1;\n        -ms-flex-order: 1;\n            order: 1;\n  }\n  .ant-col-lg-0 {\n    display: none;\n  }\n  .ant-col-push-0 {\n    left: auto;\n  }\n  .ant-col-pull-0 {\n    right: auto;\n  }\n  .ant-col-lg-push-0 {\n    left: auto;\n  }\n  .ant-col-lg-pull-0 {\n    right: auto;\n  }\n  .ant-col-lg-offset-0 {\n    margin-left: 0;\n  }\n  .ant-col-lg-order-0 {\n    -webkit-box-ordinal-group: 1;\n    -webkit-order: 0;\n        -ms-flex-order: 0;\n            order: 0;\n  }\n}\n@media (min-width: 1200px) {\n  .ant-col-xl-1, .ant-col-xl-2, .ant-col-xl-3, .ant-col-xl-4, .ant-col-xl-5, .ant-col-xl-6, .ant-col-xl-7, .ant-col-xl-8, .ant-col-xl-9, .ant-col-xl-10, .ant-col-xl-11, .ant-col-xl-12, .ant-col-xl-13, .ant-col-xl-14, .ant-col-xl-15, .ant-col-xl-16, .ant-col-xl-17, .ant-col-xl-18, .ant-col-xl-19, .ant-col-xl-20, .ant-col-xl-21, .ant-col-xl-22, .ant-col-xl-23, .ant-col-xl-24 {\n    float: left;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 auto;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n  }\n  .ant-col-xl-24 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 100%;\n  }\n  .ant-col-xl-push-24 {\n    left: 100%;\n  }\n  .ant-col-xl-pull-24 {\n    right: 100%;\n  }\n  .ant-col-xl-offset-24 {\n    margin-left: 100%;\n  }\n  .ant-col-xl-order-24 {\n    -webkit-box-ordinal-group: 25;\n    -webkit-order: 24;\n        -ms-flex-order: 24;\n            order: 24;\n  }\n  .ant-col-xl-23 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 95.83333333%;\n  }\n  .ant-col-xl-push-23 {\n    left: 95.83333333%;\n  }\n  .ant-col-xl-pull-23 {\n    right: 95.83333333%;\n  }\n  .ant-col-xl-offset-23 {\n    margin-left: 95.83333333%;\n  }\n  .ant-col-xl-order-23 {\n    -webkit-box-ordinal-group: 24;\n    -webkit-order: 23;\n        -ms-flex-order: 23;\n            order: 23;\n  }\n  .ant-col-xl-22 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 91.66666667%;\n  }\n  .ant-col-xl-push-22 {\n    left: 91.66666667%;\n  }\n  .ant-col-xl-pull-22 {\n    right: 91.66666667%;\n  }\n  .ant-col-xl-offset-22 {\n    margin-left: 91.66666667%;\n  }\n  .ant-col-xl-order-22 {\n    -webkit-box-ordinal-group: 23;\n    -webkit-order: 22;\n        -ms-flex-order: 22;\n            order: 22;\n  }\n  .ant-col-xl-21 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 87.5%;\n  }\n  .ant-col-xl-push-21 {\n    left: 87.5%;\n  }\n  .ant-col-xl-pull-21 {\n    right: 87.5%;\n  }\n  .ant-col-xl-offset-21 {\n    margin-left: 87.5%;\n  }\n  .ant-col-xl-order-21 {\n    -webkit-box-ordinal-group: 22;\n    -webkit-order: 21;\n        -ms-flex-order: 21;\n            order: 21;\n  }\n  .ant-col-xl-20 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 83.33333333%;\n  }\n  .ant-col-xl-push-20 {\n    left: 83.33333333%;\n  }\n  .ant-col-xl-pull-20 {\n    right: 83.33333333%;\n  }\n  .ant-col-xl-offset-20 {\n    margin-left: 83.33333333%;\n  }\n  .ant-col-xl-order-20 {\n    -webkit-box-ordinal-group: 21;\n    -webkit-order: 20;\n        -ms-flex-order: 20;\n            order: 20;\n  }\n  .ant-col-xl-19 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 79.16666667%;\n  }\n  .ant-col-xl-push-19 {\n    left: 79.16666667%;\n  }\n  .ant-col-xl-pull-19 {\n    right: 79.16666667%;\n  }\n  .ant-col-xl-offset-19 {\n    margin-left: 79.16666667%;\n  }\n  .ant-col-xl-order-19 {\n    -webkit-box-ordinal-group: 20;\n    -webkit-order: 19;\n        -ms-flex-order: 19;\n            order: 19;\n  }\n  .ant-col-xl-18 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 75%;\n  }\n  .ant-col-xl-push-18 {\n    left: 75%;\n  }\n  .ant-col-xl-pull-18 {\n    right: 75%;\n  }\n  .ant-col-xl-offset-18 {\n    margin-left: 75%;\n  }\n  .ant-col-xl-order-18 {\n    -webkit-box-ordinal-group: 19;\n    -webkit-order: 18;\n        -ms-flex-order: 18;\n            order: 18;\n  }\n  .ant-col-xl-17 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 70.83333333%;\n  }\n  .ant-col-xl-push-17 {\n    left: 70.83333333%;\n  }\n  .ant-col-xl-pull-17 {\n    right: 70.83333333%;\n  }\n  .ant-col-xl-offset-17 {\n    margin-left: 70.83333333%;\n  }\n  .ant-col-xl-order-17 {\n    -webkit-box-ordinal-group: 18;\n    -webkit-order: 17;\n        -ms-flex-order: 17;\n            order: 17;\n  }\n  .ant-col-xl-16 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 66.66666667%;\n  }\n  .ant-col-xl-push-16 {\n    left: 66.66666667%;\n  }\n  .ant-col-xl-pull-16 {\n    right: 66.66666667%;\n  }\n  .ant-col-xl-offset-16 {\n    margin-left: 66.66666667%;\n  }\n  .ant-col-xl-order-16 {\n    -webkit-box-ordinal-group: 17;\n    -webkit-order: 16;\n        -ms-flex-order: 16;\n            order: 16;\n  }\n  .ant-col-xl-15 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 62.5%;\n  }\n  .ant-col-xl-push-15 {\n    left: 62.5%;\n  }\n  .ant-col-xl-pull-15 {\n    right: 62.5%;\n  }\n  .ant-col-xl-offset-15 {\n    margin-left: 62.5%;\n  }\n  .ant-col-xl-order-15 {\n    -webkit-box-ordinal-group: 16;\n    -webkit-order: 15;\n        -ms-flex-order: 15;\n            order: 15;\n  }\n  .ant-col-xl-14 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 58.33333333%;\n  }\n  .ant-col-xl-push-14 {\n    left: 58.33333333%;\n  }\n  .ant-col-xl-pull-14 {\n    right: 58.33333333%;\n  }\n  .ant-col-xl-offset-14 {\n    margin-left: 58.33333333%;\n  }\n  .ant-col-xl-order-14 {\n    -webkit-box-ordinal-group: 15;\n    -webkit-order: 14;\n        -ms-flex-order: 14;\n            order: 14;\n  }\n  .ant-col-xl-13 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 54.16666667%;\n  }\n  .ant-col-xl-push-13 {\n    left: 54.16666667%;\n  }\n  .ant-col-xl-pull-13 {\n    right: 54.16666667%;\n  }\n  .ant-col-xl-offset-13 {\n    margin-left: 54.16666667%;\n  }\n  .ant-col-xl-order-13 {\n    -webkit-box-ordinal-group: 14;\n    -webkit-order: 13;\n        -ms-flex-order: 13;\n            order: 13;\n  }\n  .ant-col-xl-12 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 50%;\n  }\n  .ant-col-xl-push-12 {\n    left: 50%;\n  }\n  .ant-col-xl-pull-12 {\n    right: 50%;\n  }\n  .ant-col-xl-offset-12 {\n    margin-left: 50%;\n  }\n  .ant-col-xl-order-12 {\n    -webkit-box-ordinal-group: 13;\n    -webkit-order: 12;\n        -ms-flex-order: 12;\n            order: 12;\n  }\n  .ant-col-xl-11 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 45.83333333%;\n  }\n  .ant-col-xl-push-11 {\n    left: 45.83333333%;\n  }\n  .ant-col-xl-pull-11 {\n    right: 45.83333333%;\n  }\n  .ant-col-xl-offset-11 {\n    margin-left: 45.83333333%;\n  }\n  .ant-col-xl-order-11 {\n    -webkit-box-ordinal-group: 12;\n    -webkit-order: 11;\n        -ms-flex-order: 11;\n            order: 11;\n  }\n  .ant-col-xl-10 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 41.66666667%;\n  }\n  .ant-col-xl-push-10 {\n    left: 41.66666667%;\n  }\n  .ant-col-xl-pull-10 {\n    right: 41.66666667%;\n  }\n  .ant-col-xl-offset-10 {\n    margin-left: 41.66666667%;\n  }\n  .ant-col-xl-order-10 {\n    -webkit-box-ordinal-group: 11;\n    -webkit-order: 10;\n        -ms-flex-order: 10;\n            order: 10;\n  }\n  .ant-col-xl-9 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 37.5%;\n  }\n  .ant-col-xl-push-9 {\n    left: 37.5%;\n  }\n  .ant-col-xl-pull-9 {\n    right: 37.5%;\n  }\n  .ant-col-xl-offset-9 {\n    margin-left: 37.5%;\n  }\n  .ant-col-xl-order-9 {\n    -webkit-box-ordinal-group: 10;\n    -webkit-order: 9;\n        -ms-flex-order: 9;\n            order: 9;\n  }\n  .ant-col-xl-8 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 33.33333333%;\n  }\n  .ant-col-xl-push-8 {\n    left: 33.33333333%;\n  }\n  .ant-col-xl-pull-8 {\n    right: 33.33333333%;\n  }\n  .ant-col-xl-offset-8 {\n    margin-left: 33.33333333%;\n  }\n  .ant-col-xl-order-8 {\n    -webkit-box-ordinal-group: 9;\n    -webkit-order: 8;\n        -ms-flex-order: 8;\n            order: 8;\n  }\n  .ant-col-xl-7 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 29.16666667%;\n  }\n  .ant-col-xl-push-7 {\n    left: 29.16666667%;\n  }\n  .ant-col-xl-pull-7 {\n    right: 29.16666667%;\n  }\n  .ant-col-xl-offset-7 {\n    margin-left: 29.16666667%;\n  }\n  .ant-col-xl-order-7 {\n    -webkit-box-ordinal-group: 8;\n    -webkit-order: 7;\n        -ms-flex-order: 7;\n            order: 7;\n  }\n  .ant-col-xl-6 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 25%;\n  }\n  .ant-col-xl-push-6 {\n    left: 25%;\n  }\n  .ant-col-xl-pull-6 {\n    right: 25%;\n  }\n  .ant-col-xl-offset-6 {\n    margin-left: 25%;\n  }\n  .ant-col-xl-order-6 {\n    -webkit-box-ordinal-group: 7;\n    -webkit-order: 6;\n        -ms-flex-order: 6;\n            order: 6;\n  }\n  .ant-col-xl-5 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 20.83333333%;\n  }\n  .ant-col-xl-push-5 {\n    left: 20.83333333%;\n  }\n  .ant-col-xl-pull-5 {\n    right: 20.83333333%;\n  }\n  .ant-col-xl-offset-5 {\n    margin-left: 20.83333333%;\n  }\n  .ant-col-xl-order-5 {\n    -webkit-box-ordinal-group: 6;\n    -webkit-order: 5;\n        -ms-flex-order: 5;\n            order: 5;\n  }\n  .ant-col-xl-4 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 16.66666667%;\n  }\n  .ant-col-xl-push-4 {\n    left: 16.66666667%;\n  }\n  .ant-col-xl-pull-4 {\n    right: 16.66666667%;\n  }\n  .ant-col-xl-offset-4 {\n    margin-left: 16.66666667%;\n  }\n  .ant-col-xl-order-4 {\n    -webkit-box-ordinal-group: 5;\n    -webkit-order: 4;\n        -ms-flex-order: 4;\n            order: 4;\n  }\n  .ant-col-xl-3 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 12.5%;\n  }\n  .ant-col-xl-push-3 {\n    left: 12.5%;\n  }\n  .ant-col-xl-pull-3 {\n    right: 12.5%;\n  }\n  .ant-col-xl-offset-3 {\n    margin-left: 12.5%;\n  }\n  .ant-col-xl-order-3 {\n    -webkit-box-ordinal-group: 4;\n    -webkit-order: 3;\n        -ms-flex-order: 3;\n            order: 3;\n  }\n  .ant-col-xl-2 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 8.33333333%;\n  }\n  .ant-col-xl-push-2 {\n    left: 8.33333333%;\n  }\n  .ant-col-xl-pull-2 {\n    right: 8.33333333%;\n  }\n  .ant-col-xl-offset-2 {\n    margin-left: 8.33333333%;\n  }\n  .ant-col-xl-order-2 {\n    -webkit-box-ordinal-group: 3;\n    -webkit-order: 2;\n        -ms-flex-order: 2;\n            order: 2;\n  }\n  .ant-col-xl-1 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 4.16666667%;\n  }\n  .ant-col-xl-push-1 {\n    left: 4.16666667%;\n  }\n  .ant-col-xl-pull-1 {\n    right: 4.16666667%;\n  }\n  .ant-col-xl-offset-1 {\n    margin-left: 4.16666667%;\n  }\n  .ant-col-xl-order-1 {\n    -webkit-box-ordinal-group: 2;\n    -webkit-order: 1;\n        -ms-flex-order: 1;\n            order: 1;\n  }\n  .ant-col-xl-0 {\n    display: none;\n  }\n  .ant-col-push-0 {\n    left: auto;\n  }\n  .ant-col-pull-0 {\n    right: auto;\n  }\n  .ant-col-xl-push-0 {\n    left: auto;\n  }\n  .ant-col-xl-pull-0 {\n    right: auto;\n  }\n  .ant-col-xl-offset-0 {\n    margin-left: 0;\n  }\n  .ant-col-xl-order-0 {\n    -webkit-box-ordinal-group: 1;\n    -webkit-order: 0;\n        -ms-flex-order: 0;\n            order: 0;\n  }\n}\n@media (min-width: 1600px) {\n  .ant-col-xxl-1, .ant-col-xxl-2, .ant-col-xxl-3, .ant-col-xxl-4, .ant-col-xxl-5, .ant-col-xxl-6, .ant-col-xxl-7, .ant-col-xxl-8, .ant-col-xxl-9, .ant-col-xxl-10, .ant-col-xxl-11, .ant-col-xxl-12, .ant-col-xxl-13, .ant-col-xxl-14, .ant-col-xxl-15, .ant-col-xxl-16, .ant-col-xxl-17, .ant-col-xxl-18, .ant-col-xxl-19, .ant-col-xxl-20, .ant-col-xxl-21, .ant-col-xxl-22, .ant-col-xxl-23, .ant-col-xxl-24 {\n    float: left;\n    -webkit-box-flex: 0;\n    -webkit-flex: 0 0 auto;\n        -ms-flex: 0 0 auto;\n            flex: 0 0 auto;\n  }\n  .ant-col-xxl-24 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 100%;\n  }\n  .ant-col-xxl-push-24 {\n    left: 100%;\n  }\n  .ant-col-xxl-pull-24 {\n    right: 100%;\n  }\n  .ant-col-xxl-offset-24 {\n    margin-left: 100%;\n  }\n  .ant-col-xxl-order-24 {\n    -webkit-box-ordinal-group: 25;\n    -webkit-order: 24;\n        -ms-flex-order: 24;\n            order: 24;\n  }\n  .ant-col-xxl-23 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 95.83333333%;\n  }\n  .ant-col-xxl-push-23 {\n    left: 95.83333333%;\n  }\n  .ant-col-xxl-pull-23 {\n    right: 95.83333333%;\n  }\n  .ant-col-xxl-offset-23 {\n    margin-left: 95.83333333%;\n  }\n  .ant-col-xxl-order-23 {\n    -webkit-box-ordinal-group: 24;\n    -webkit-order: 23;\n        -ms-flex-order: 23;\n            order: 23;\n  }\n  .ant-col-xxl-22 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 91.66666667%;\n  }\n  .ant-col-xxl-push-22 {\n    left: 91.66666667%;\n  }\n  .ant-col-xxl-pull-22 {\n    right: 91.66666667%;\n  }\n  .ant-col-xxl-offset-22 {\n    margin-left: 91.66666667%;\n  }\n  .ant-col-xxl-order-22 {\n    -webkit-box-ordinal-group: 23;\n    -webkit-order: 22;\n        -ms-flex-order: 22;\n            order: 22;\n  }\n  .ant-col-xxl-21 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 87.5%;\n  }\n  .ant-col-xxl-push-21 {\n    left: 87.5%;\n  }\n  .ant-col-xxl-pull-21 {\n    right: 87.5%;\n  }\n  .ant-col-xxl-offset-21 {\n    margin-left: 87.5%;\n  }\n  .ant-col-xxl-order-21 {\n    -webkit-box-ordinal-group: 22;\n    -webkit-order: 21;\n        -ms-flex-order: 21;\n            order: 21;\n  }\n  .ant-col-xxl-20 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 83.33333333%;\n  }\n  .ant-col-xxl-push-20 {\n    left: 83.33333333%;\n  }\n  .ant-col-xxl-pull-20 {\n    right: 83.33333333%;\n  }\n  .ant-col-xxl-offset-20 {\n    margin-left: 83.33333333%;\n  }\n  .ant-col-xxl-order-20 {\n    -webkit-box-ordinal-group: 21;\n    -webkit-order: 20;\n        -ms-flex-order: 20;\n            order: 20;\n  }\n  .ant-col-xxl-19 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 79.16666667%;\n  }\n  .ant-col-xxl-push-19 {\n    left: 79.16666667%;\n  }\n  .ant-col-xxl-pull-19 {\n    right: 79.16666667%;\n  }\n  .ant-col-xxl-offset-19 {\n    margin-left: 79.16666667%;\n  }\n  .ant-col-xxl-order-19 {\n    -webkit-box-ordinal-group: 20;\n    -webkit-order: 19;\n        -ms-flex-order: 19;\n            order: 19;\n  }\n  .ant-col-xxl-18 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 75%;\n  }\n  .ant-col-xxl-push-18 {\n    left: 75%;\n  }\n  .ant-col-xxl-pull-18 {\n    right: 75%;\n  }\n  .ant-col-xxl-offset-18 {\n    margin-left: 75%;\n  }\n  .ant-col-xxl-order-18 {\n    -webkit-box-ordinal-group: 19;\n    -webkit-order: 18;\n        -ms-flex-order: 18;\n            order: 18;\n  }\n  .ant-col-xxl-17 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 70.83333333%;\n  }\n  .ant-col-xxl-push-17 {\n    left: 70.83333333%;\n  }\n  .ant-col-xxl-pull-17 {\n    right: 70.83333333%;\n  }\n  .ant-col-xxl-offset-17 {\n    margin-left: 70.83333333%;\n  }\n  .ant-col-xxl-order-17 {\n    -webkit-box-ordinal-group: 18;\n    -webkit-order: 17;\n        -ms-flex-order: 17;\n            order: 17;\n  }\n  .ant-col-xxl-16 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 66.66666667%;\n  }\n  .ant-col-xxl-push-16 {\n    left: 66.66666667%;\n  }\n  .ant-col-xxl-pull-16 {\n    right: 66.66666667%;\n  }\n  .ant-col-xxl-offset-16 {\n    margin-left: 66.66666667%;\n  }\n  .ant-col-xxl-order-16 {\n    -webkit-box-ordinal-group: 17;\n    -webkit-order: 16;\n        -ms-flex-order: 16;\n            order: 16;\n  }\n  .ant-col-xxl-15 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 62.5%;\n  }\n  .ant-col-xxl-push-15 {\n    left: 62.5%;\n  }\n  .ant-col-xxl-pull-15 {\n    right: 62.5%;\n  }\n  .ant-col-xxl-offset-15 {\n    margin-left: 62.5%;\n  }\n  .ant-col-xxl-order-15 {\n    -webkit-box-ordinal-group: 16;\n    -webkit-order: 15;\n        -ms-flex-order: 15;\n            order: 15;\n  }\n  .ant-col-xxl-14 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 58.33333333%;\n  }\n  .ant-col-xxl-push-14 {\n    left: 58.33333333%;\n  }\n  .ant-col-xxl-pull-14 {\n    right: 58.33333333%;\n  }\n  .ant-col-xxl-offset-14 {\n    margin-left: 58.33333333%;\n  }\n  .ant-col-xxl-order-14 {\n    -webkit-box-ordinal-group: 15;\n    -webkit-order: 14;\n        -ms-flex-order: 14;\n            order: 14;\n  }\n  .ant-col-xxl-13 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 54.16666667%;\n  }\n  .ant-col-xxl-push-13 {\n    left: 54.16666667%;\n  }\n  .ant-col-xxl-pull-13 {\n    right: 54.16666667%;\n  }\n  .ant-col-xxl-offset-13 {\n    margin-left: 54.16666667%;\n  }\n  .ant-col-xxl-order-13 {\n    -webkit-box-ordinal-group: 14;\n    -webkit-order: 13;\n        -ms-flex-order: 13;\n            order: 13;\n  }\n  .ant-col-xxl-12 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 50%;\n  }\n  .ant-col-xxl-push-12 {\n    left: 50%;\n  }\n  .ant-col-xxl-pull-12 {\n    right: 50%;\n  }\n  .ant-col-xxl-offset-12 {\n    margin-left: 50%;\n  }\n  .ant-col-xxl-order-12 {\n    -webkit-box-ordinal-group: 13;\n    -webkit-order: 12;\n        -ms-flex-order: 12;\n            order: 12;\n  }\n  .ant-col-xxl-11 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 45.83333333%;\n  }\n  .ant-col-xxl-push-11 {\n    left: 45.83333333%;\n  }\n  .ant-col-xxl-pull-11 {\n    right: 45.83333333%;\n  }\n  .ant-col-xxl-offset-11 {\n    margin-left: 45.83333333%;\n  }\n  .ant-col-xxl-order-11 {\n    -webkit-box-ordinal-group: 12;\n    -webkit-order: 11;\n        -ms-flex-order: 11;\n            order: 11;\n  }\n  .ant-col-xxl-10 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 41.66666667%;\n  }\n  .ant-col-xxl-push-10 {\n    left: 41.66666667%;\n  }\n  .ant-col-xxl-pull-10 {\n    right: 41.66666667%;\n  }\n  .ant-col-xxl-offset-10 {\n    margin-left: 41.66666667%;\n  }\n  .ant-col-xxl-order-10 {\n    -webkit-box-ordinal-group: 11;\n    -webkit-order: 10;\n        -ms-flex-order: 10;\n            order: 10;\n  }\n  .ant-col-xxl-9 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 37.5%;\n  }\n  .ant-col-xxl-push-9 {\n    left: 37.5%;\n  }\n  .ant-col-xxl-pull-9 {\n    right: 37.5%;\n  }\n  .ant-col-xxl-offset-9 {\n    margin-left: 37.5%;\n  }\n  .ant-col-xxl-order-9 {\n    -webkit-box-ordinal-group: 10;\n    -webkit-order: 9;\n        -ms-flex-order: 9;\n            order: 9;\n  }\n  .ant-col-xxl-8 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 33.33333333%;\n  }\n  .ant-col-xxl-push-8 {\n    left: 33.33333333%;\n  }\n  .ant-col-xxl-pull-8 {\n    right: 33.33333333%;\n  }\n  .ant-col-xxl-offset-8 {\n    margin-left: 33.33333333%;\n  }\n  .ant-col-xxl-order-8 {\n    -webkit-box-ordinal-group: 9;\n    -webkit-order: 8;\n        -ms-flex-order: 8;\n            order: 8;\n  }\n  .ant-col-xxl-7 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 29.16666667%;\n  }\n  .ant-col-xxl-push-7 {\n    left: 29.16666667%;\n  }\n  .ant-col-xxl-pull-7 {\n    right: 29.16666667%;\n  }\n  .ant-col-xxl-offset-7 {\n    margin-left: 29.16666667%;\n  }\n  .ant-col-xxl-order-7 {\n    -webkit-box-ordinal-group: 8;\n    -webkit-order: 7;\n        -ms-flex-order: 7;\n            order: 7;\n  }\n  .ant-col-xxl-6 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 25%;\n  }\n  .ant-col-xxl-push-6 {\n    left: 25%;\n  }\n  .ant-col-xxl-pull-6 {\n    right: 25%;\n  }\n  .ant-col-xxl-offset-6 {\n    margin-left: 25%;\n  }\n  .ant-col-xxl-order-6 {\n    -webkit-box-ordinal-group: 7;\n    -webkit-order: 6;\n        -ms-flex-order: 6;\n            order: 6;\n  }\n  .ant-col-xxl-5 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 20.83333333%;\n  }\n  .ant-col-xxl-push-5 {\n    left: 20.83333333%;\n  }\n  .ant-col-xxl-pull-5 {\n    right: 20.83333333%;\n  }\n  .ant-col-xxl-offset-5 {\n    margin-left: 20.83333333%;\n  }\n  .ant-col-xxl-order-5 {\n    -webkit-box-ordinal-group: 6;\n    -webkit-order: 5;\n        -ms-flex-order: 5;\n            order: 5;\n  }\n  .ant-col-xxl-4 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 16.66666667%;\n  }\n  .ant-col-xxl-push-4 {\n    left: 16.66666667%;\n  }\n  .ant-col-xxl-pull-4 {\n    right: 16.66666667%;\n  }\n  .ant-col-xxl-offset-4 {\n    margin-left: 16.66666667%;\n  }\n  .ant-col-xxl-order-4 {\n    -webkit-box-ordinal-group: 5;\n    -webkit-order: 4;\n        -ms-flex-order: 4;\n            order: 4;\n  }\n  .ant-col-xxl-3 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 12.5%;\n  }\n  .ant-col-xxl-push-3 {\n    left: 12.5%;\n  }\n  .ant-col-xxl-pull-3 {\n    right: 12.5%;\n  }\n  .ant-col-xxl-offset-3 {\n    margin-left: 12.5%;\n  }\n  .ant-col-xxl-order-3 {\n    -webkit-box-ordinal-group: 4;\n    -webkit-order: 3;\n        -ms-flex-order: 3;\n            order: 3;\n  }\n  .ant-col-xxl-2 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 8.33333333%;\n  }\n  .ant-col-xxl-push-2 {\n    left: 8.33333333%;\n  }\n  .ant-col-xxl-pull-2 {\n    right: 8.33333333%;\n  }\n  .ant-col-xxl-offset-2 {\n    margin-left: 8.33333333%;\n  }\n  .ant-col-xxl-order-2 {\n    -webkit-box-ordinal-group: 3;\n    -webkit-order: 2;\n        -ms-flex-order: 2;\n            order: 2;\n  }\n  .ant-col-xxl-1 {\n    display: block;\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 4.16666667%;\n  }\n  .ant-col-xxl-push-1 {\n    left: 4.16666667%;\n  }\n  .ant-col-xxl-pull-1 {\n    right: 4.16666667%;\n  }\n  .ant-col-xxl-offset-1 {\n    margin-left: 4.16666667%;\n  }\n  .ant-col-xxl-order-1 {\n    -webkit-box-ordinal-group: 2;\n    -webkit-order: 1;\n        -ms-flex-order: 1;\n            order: 1;\n  }\n  .ant-col-xxl-0 {\n    display: none;\n  }\n  .ant-col-push-0 {\n    left: auto;\n  }\n  .ant-col-pull-0 {\n    right: auto;\n  }\n  .ant-col-xxl-push-0 {\n    left: auto;\n  }\n  .ant-col-xxl-pull-0 {\n    right: auto;\n  }\n  .ant-col-xxl-offset-0 {\n    margin-left: 0;\n  }\n  .ant-col-xxl-order-0 {\n    -webkit-box-ordinal-group: 1;\n    -webkit-order: 0;\n        -ms-flex-order: 0;\n            order: 0;\n  }\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 541 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(25);
-
-__webpack_require__(271);
-
-/***/ }),
+/* 539 */,
+/* 540 */,
+/* 541 */,
 /* 542 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -68851,10 +68042,6 @@ var _underscore = __webpack_require__(56);
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var _prettyBytes = __webpack_require__(548);
-
-var _prettyBytes2 = _interopRequireDefault(_prettyBytes);
-
 var _reactAnimatedNumber = __webpack_require__(549);
 
 var _reactAnimatedNumber2 = _interopRequireDefault(_reactAnimatedNumber);
@@ -68938,37 +68125,7 @@ var NumberCounter = function (_React$Component) {
 exports.default = NumberCounter;
 
 /***/ }),
-/* 548 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-const UNITS = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-
-module.exports = num => {
-	if (!Number.isFinite(num)) {
-		throw new TypeError(`Expected a finite number, got ${typeof num}: ${num}`);
-	}
-
-	const neg = num < 0;
-
-	if (neg) {
-		num = -num;
-	}
-
-	if (num < 1) {
-		return (neg ? '-' : '') + num + ' B';
-	}
-
-	const exponent = Math.min(Math.floor(Math.log(num) / Math.log(1000)), UNITS.length - 1);
-	const numStr = Number((num / Math.pow(1000, exponent)).toPrecision(3));
-	const unit = UNITS[exponent];
-
-	return (neg ? '-' : '') + numStr + ' ' + unit;
-};
-
-
-/***/ }),
+/* 548 */,
 /* 549 */
 /***/ (function(module, exports, __webpack_require__) {
 
