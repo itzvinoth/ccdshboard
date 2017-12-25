@@ -66794,6 +66794,10 @@ var _layout = __webpack_require__(514);
 
 var _layout2 = _interopRequireDefault(_layout);
 
+var _icon = __webpack_require__(99);
+
+var _icon2 = _interopRequireDefault(_icon);
+
 var _row = __webpack_require__(526);
 
 var _row2 = _interopRequireDefault(_row);
@@ -66827,6 +66831,8 @@ var _inherits2 = __webpack_require__(12);
 var _inherits3 = _interopRequireDefault(_inherits2);
 
 __webpack_require__(535);
+
+__webpack_require__(581);
 
 __webpack_require__(538);
 
@@ -66924,7 +66930,45 @@ var LayoutPage = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { style: { height: "50%", width: "50%", border: "1px solid black", float: "left" } },
-              'Balance 2'
+              _react2.default.createElement(
+                'div',
+                { style: { height: "50%", width: "30%", float: "left" } },
+                _react2.default.createElement(
+                  _icon2.default,
+                  { type: 'arrow-up', style: { fontSize: 32, color: '#08c', background: '#f2f2f2' } },
+                  _react2.default.createElement(
+                    'span',
+                    { style: { fontSize: 16, color: '#08c', background: '#f2f2f2' } },
+                    'Sell'
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { style: { height: "50%", width: "30%", float: "left" } },
+                _react2.default.createElement(
+                  _icon2.default,
+                  { type: 'arrow-down', style: { fontSize: 32, color: '#08c', background: '#f2f2f2' } },
+                  _react2.default.createElement(
+                    'span',
+                    { style: { fontSize: 16, color: '#08c', background: '#f2f2f2' } },
+                    'Buy'
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { style: { height: "50%", width: "30%", float: "left" } },
+                _react2.default.createElement(
+                  _icon2.default,
+                  { type: 'schedule', style: { fontSize: 32, color: '#08c', background: '#f2f2f2' } },
+                  _react2.default.createElement(
+                    'span',
+                    { style: { fontSize: 16, color: '#08c', background: '#f2f2f2' } },
+                    'Order'
+                  )
+                )
+              )
             ),
             _react2.default.createElement(
               'div',
@@ -73183,6 +73227,15 @@ var DrawLineChart = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = DrawLineChart;
+
+/***/ }),
+/* 581 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(30);
 
 /***/ })
 /******/ ]);

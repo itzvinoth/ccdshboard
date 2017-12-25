@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Avatar, Row, Col} from 'antd';
+import { Layout, Avatar, Row, Col, Icon} from 'antd';
 import './Dashboard.css';
 import './Cards.css';
 import Dashboard from "./Dashboard";
@@ -40,7 +40,21 @@ export default class LayoutPage extends React.Component {
                 <NumberCounter min={100} max={1000}/>
               </div>
               <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
-                Balance 2
+                <div style={{height:"50%", width:"30%", float: "left"}}>
+                  <Icon type="arrow-up" style={{ fontSize: 32, color: '#08c', background:'#f2f2f2' }} >
+                    <span style={{ fontSize: 16, color: '#08c', background:'#f2f2f2' }} >Sell</span>
+                  </Icon>
+                </div>
+                <div style={{height:"50%", width:"30%", float: "left"}}>
+                  <Icon type="arrow-down" style={{ fontSize: 32, color: '#08c', background:'#f2f2f2' }} >
+                    <span style={{ fontSize: 16, color: '#08c', background:'#f2f2f2' }} >Buy</span>
+                  </Icon>
+                </div>
+                <div style={{height:"50%", width:"30%", float: "left"}}>
+                  <Icon type="schedule" style={{ fontSize: 32, color: '#08c', background:'#f2f2f2' }}>
+                    <span style={{ fontSize: 16, color: '#08c', background:'#f2f2f2' }} >Order</span>
+                  </Icon>
+                </div>
               </div>
               <div style={{height:"50%", width:"50%",border:"1px solid black",float: "left"}}>
                 <NumberCounter min={500} max={5000}/><br/>
