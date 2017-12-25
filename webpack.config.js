@@ -21,7 +21,7 @@ module.exports = {
   ],
   output: {
     publicPath: './',
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname),
     filename: 'app.min.js'
   },
   resolve: {
