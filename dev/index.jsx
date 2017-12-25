@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from "./components/App";
 
 const app = document.getElementById('container');
-
+console.log("testing");
 ReactDOM.render(
     <BrowserRouter>
 	    <App/>
