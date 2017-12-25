@@ -5,8 +5,11 @@ import App from "./components/App";
 
 const app = document.getElementById('container');
 console.log("testing");
-ReactDOM.render(
-    <BrowserRouter>
-	    <App/>
-    </BrowserRouter>
-,app);
+setTimeout(function(){
+	console.log("after delay");
+	ReactDOM.render(
+	    <BrowserRouter>
+		    <App/>
+	    </BrowserRouter>
+	,app);
+}, 5000)
