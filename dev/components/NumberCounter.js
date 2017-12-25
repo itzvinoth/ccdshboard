@@ -1,7 +1,5 @@
 import React from 'react';
 import { Radio } from 'antd';
-import request from 'superagent';
-import _ from 'underscore';
 import AnimatedNumber from 'react-animated-number';
 
 const getRandomInt = function (min, max) {

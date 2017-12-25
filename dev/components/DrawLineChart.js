@@ -1,7 +1,5 @@
 import React from 'react';
 import { Radio } from 'antd';
-import request from 'superagent';
-import _ from 'underscore';
 import LineChart from 'react-chartjs-2';
 
 export default class DrawLineChart extends React.Component {

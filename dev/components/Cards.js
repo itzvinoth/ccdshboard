@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Card } from 'antd';
-import _ from 'underscore';
 import './Cards.css';
 
 export default class Cards extends React.Component {
