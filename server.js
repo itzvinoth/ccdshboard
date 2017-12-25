@@ -1,16 +1,4 @@
 var express = require("express");
-var mongoose = require("mongoose");
-
-// Init DB
-mongoose.Promise = global.Promise;
-var dbURL = "mongodb://localhost:27017/jopo";
-mongoose.connect(dbURL, { useMongoClient: true });
-mongoose.connection.on("error", function(err) {
-    if (err) throw err;
-})
-mongoose.connection.on("open", function() {
-    console.log("Successfully connected to db:", dbURL)
-})
 
 // Init app
 var port = 3000;
