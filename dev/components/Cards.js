@@ -54,13 +54,13 @@ export default class Cards extends React.Component {
 		for (var i=0; i<cards.length; i++) {
 			if (count-1 !== i) {
 				slides.push(<div className="cards-container" key={i} style={{padding: '20px'}} onClick={this.handleClick} >
-					<Card style={{ width: 170, background: "#3333cc", height: 200, transform: `translateX(${this.state.translateValue}px)`, transition: `${this.state.transition}` }}>
+					<Card style={{ width: 170, background: "#9999e6", height: 200, transform: `translateX(${this.state.translateValue}px)`, transition: `${this.state.transition}` }}>
 						<p>Card content {cards[i]}</p>
 					</Card>
 				</div>);
 			} else {
 				slides.push(<div className="cards-container" key={i} style={{padding: '20px'}} >
-					<Card style={{ width: 200, background: "#3333cc", height: 230, transform: `translateX(${this.state.translateValue}px)`, transition: `${this.state.transition}` }}>
+					<Card style={{ width: 200, background: "#9999e6", height: 230, transform: `translateX(${this.state.translateValue}px)`, transition: `${this.state.transition}` }}>
 						<p>Card content {cards[i]}</p>
 					</Card>
 				</div>);
