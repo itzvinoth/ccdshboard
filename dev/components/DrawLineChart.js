@@ -10,7 +10,7 @@ export default class DrawLineChart extends React.Component {
 			chartData: {
 				labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 				datasets: [{
-					data: [8, 19, 7, 15, 2, 3, 14, 4, 16, 6, 8, 10],
+					data: props.data,
 					fill: false,
 					borderColor: 'rgb(51, 51, 204)',
 					radius: 0,
@@ -55,6 +55,7 @@ export default class DrawLineChart extends React.Component {
 
 	render() {
 		const { type, chartData, options, width, height } = this.state;
+		chartData.datasets[0].data = this.props.data;
 		return (
 			<div style={{width: '170px', height: '40px'}}>
 				<LineChart type={type} data={chartData} options={options} width={width} height={height} />
