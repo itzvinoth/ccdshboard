@@ -51,7 +51,7 @@ export default class Chart extends React.Component {
         labels: (event.target.value === 'month' || event.target.value === 'day') ? ['Januar', 'March', 'April', 'June'] : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         datasets: [{
           data: (event.target.value === 'month' || event.target.value === 'day') ? [4, 9, 2, 7] : [8, 19, 7, 15, 2, 3, 14, 4, 16, 6, 8, 10],
-          borderColor: 'rgb(51, 51, 204)',
+          borderColor: '#9999e6',
           borderWidth: 2
         }]
       }
