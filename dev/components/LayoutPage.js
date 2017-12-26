@@ -65,14 +65,14 @@ export default class LayoutPage extends React.Component {
       }
     }
     const {footerMin, footerMax, show } = this.state;
-
+// 9999e6
     return (
       <div style={{height:"100%", width:"100%"}}>
           <div style={{height:"100%", width:"5%",float: "left", background:'#f2f2f2'}}>
             <div style={{height:"10%", width:"100%", float: "left"}}>
               <Avatar shape="square" size="large" icon="user" />
             </div>
-            <div style={{height:"100%", width:"100%",float:"left", background:"#3333cc" }}>
+            <div style={{height:"100%", width:"100%",float:"left", background:"#9999e6" }}>
               <ul style={{listStyle:'none', paddingLeft:'50%'}}>
                 <li style={Styles.liStyle}>
                   <Icon style={Styles.iconStyle} size="large" type="dashboard" />
